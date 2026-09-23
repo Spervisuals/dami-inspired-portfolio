@@ -77,9 +77,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Designer Portfolio" },
-      { name: "description", content: "A UX designer portfolio and selected work." },
-      { name: "author", content: "Dami Osoba" },
+      { title: "Tobiloba Ademowo — Senior Product Designer" },
+      { name: "description", content: "Senior Product Designer turning complex problems into simple digital experiences." },
+      { name: "author", content: "Tobiloba Ademowo" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
