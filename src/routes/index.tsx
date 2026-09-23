@@ -57,7 +57,8 @@ function Index() {
       )}
 
       <aside
-        className={`fixed inset-y-3 left-3 z-40 flex w-[13.5rem] flex-col overflow-hidden rounded-lg border border-border bg-sidebar p-3 shadow-2xl transition-transform duration-300 sm:inset-y-5 sm:left-5 lg:inset-y-6 lg:left-6 lg:w-[13.5rem] lg:translate-x-0 ${menuOpen ? "translate-x-0" : "-translate-x-[120%]"}`}
+        data-open={menuOpen}
+        className="fixed inset-y-3 left-3 z-40 flex w-[13.5rem] -translate-x-[120%] flex-col overflow-hidden rounded-lg border border-border bg-sidebar p-3 shadow-2xl transition-transform duration-300 data-[open=true]:translate-x-0 sm:inset-y-5 sm:left-5 lg:inset-y-6 lg:left-6 lg:w-[13.5rem] lg:translate-x-0"
       >
         <a href="#home" className="flex items-center gap-2.5 px-1 py-11" onClick={() => setMenuOpen(false)}>
           <img
