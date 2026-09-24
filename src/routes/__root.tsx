@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Tobiloba Ademowo — Senior Product Designer" },
-      { name: "description", content: "Senior Product Designer turning complex problems into simple digital experiences." },
+      { name: "description", content: "Senior Product Designer designing digital products that make complex things simple, useful, and valuable." },
       { name: "author", content: "Tobiloba Ademowo" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
