@@ -11,12 +11,14 @@ export const Route = createFileRoute("/")({
       { title: "Tobiloba Ademowo — Senior Product Designer" },
       {
         name: "description",
-        content: "Senior Product Designer turning complex problems into simple digital experiences.",
+        content:
+          "Senior Product Designer designing digital products that make complex things simple, useful, and valuable.",
       },
       { property: "og:title", content: "Tobiloba Ademowo — Senior Product Designer" },
       {
         property: "og:description",
-        content: "Selected product design work across energy, government, fintech and consumer platforms.",
+        content:
+          "I help teams transform complex operational systems into intuitive digital experiences across enterprise, government and consumer platforms.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -29,7 +31,6 @@ const navigation = [
   { label: "Home", href: "#home" },
   { label: "Selected Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Capabilities", href: "#capabilities" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -38,44 +39,84 @@ const projects = [
     number: "01",
     name: "BoostXpress",
     summary: "Reimagining the everyday fueling experience.",
-    role: "Lead Product Designer / Product Owner",
-    industry: "Energy Technology / FinTech",
+    industry: "Energy / FinTech",
   },
   {
     number: "02",
-    name: "CitiX",
-    summary: "Making visa applications easier to submit, track and manage.",
-    role: "Product Designer",
-    industry: "Travel / Government Services",
-  },
-  {
-    number: "03",
     name: "MVAA Learner's Permit System",
-    summary: "Digitising a complex government service.",
-    role: "Product Designer / Product Lead",
+    summary: "Digitising a complex government service end to end.",
     industry: "Government / Public Services",
   },
   {
-    number: "04",
-    name: "Terminal One",
-    summary: "Turning complex energy trading into a clearer digital workflow.",
-    role: "Product Designer",
+    number: "03",
+    name: "TradeGrid Mobile",
+    summary: "Energy trading, clear and on the move.",
     industry: "Energy / B2B",
+  },
+  {
+    number: "04",
+    name: "Citi X",
+    summary: "Making visa applications easier to submit, track and manage.",
+    industry: "Travel / Government",
+  },
+  {
+    number: "05",
+    name: "Terminal One",
+    summary: "Turning complex energy trading into a clearer workflow.",
+    industry: "Energy / B2B",
+  },
+  {
+    number: "06",
+    name: "PMLConcepts",
+    summary: "Brand and product concept exploration.",
+    industry: "Brand / Product",
   },
 ];
 
-const capabilities = [
-  "Product Thinking",
-  "Systems Thinking",
-  "UX & Interaction",
-  "Visual Design",
-  "Prototyping",
-  "Design Systems",
-  "Product Strategy",
-  "Collaboration",
+const facts = [
+  { label: "Focus", value: "Enterprise · Government · Consumer" },
+  { label: "Industries", value: "Energy · FinTech · Public Services · Operations" },
+  { label: "Experience", value: "8+ years designing digital products" },
+  { label: "Based in", value: "🇳🇬 Lagos, Nigeria" },
 ];
 
-const industries = ["Energy", "Government", "Fintech", "Consumer", "B2B", "Operational Systems"];
+const ORANGE = "oklch(0.70 0.18 52)";
+
+function ProjectVisual({ index, number }: { index: number; number: string }) {
+  const rotate = [-14, 9, -7, 16, -11, 7][index % 6];
+  const gid = `pg-${index}`;
+  return (
+    <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden border-b border-border bg-secondary">
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 160 90"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="oklch(0.21 0 0)" />
+            <stop offset="100%" stopColor="oklch(0.10 0 0)" />
+          </linearGradient>
+          <pattern id={`grid-${index}`} width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="oklch(0.97 0 0 / 0.06)" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+        <rect width="160" height="90" fill={`url(#${gid})`} />
+        <rect width="160" height="90" fill={`url(#grid-${index})`} />
+        <g transform={`rotate(${rotate} 80 45)`} fill="none">
+          <rect x="18" y="28" width="124" height="2" fill={`${ORANGE}`} opacity="0.95" />
+          <rect x="40" y="44" width="82" height="2" fill={`${ORANGE}`} opacity="0.55" />
+          <rect x="62" y="60" width="42" height="2" fill={`${ORANGE}`} opacity="0.3" />
+          <circle cx="128" cy="30" r="6" fill={`${ORANGE}`} opacity="0.95" />
+          <rect x="30" y="18" width="2" height="56" fill="oklch(0.97 0 0 / 0.18)" />
+          <rect x="110" y="18" width="2" height="56" fill="oklch(0.97 0 0 / 0.1)" />
+        </g>
+      </svg>
+      <span className="relative z-10 font-display text-6xl font-bold text-foreground/85">{number}</span>
+    </div>
+  );
+}
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -117,7 +158,11 @@ function Index() {
               key={item.label}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className={`block rounded-md px-2 py-2.5 text-xs transition-colors ${index === 0 ? "bg-sidebar-accent text-foreground" : "text-foreground hover:bg-sidebar-accent"}`}
+              className={`block rounded-md border-l-2 px-3 py-2.5 text-xs transition-colors ${
+                index === 0
+                  ? "border-highlight bg-sidebar-accent text-highlight"
+                  : "border-transparent text-foreground hover:bg-sidebar-accent"
+              }`}
             >
               {item.label}
             </a>
@@ -128,10 +173,10 @@ function Index() {
           <div className="rounded-lg bg-secondary p-3">
             <h2 className="text-base font-semibold">Have a complex problem worth solving?</h2>
             <p className="mt-2 text-xs leading-5 text-foreground">
-              I&apos;m open to senior product design opportunities and product collaborations.
+              I'm open to senior product design opportunities and product collaborations.
             </p>
-            <Button asChild className="mt-3 w-full bg-foreground text-background hover:bg-foreground/90">
-              <a href="#contact" onClick={() => setMenuOpen(false)}>Let&apos;s talk</a>
+            <Button asChild className="mt-3 w-full bg-highlight text-highlight-foreground hover:bg-highlight/90">
+              <a href="#contact" onClick={() => setMenuOpen(false)}>Let's talk</a>
             </Button>
           </div>
         </div>
@@ -150,100 +195,106 @@ function Index() {
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="relative z-10 mb-[6vh] max-w-4xl">
-            <p className="mb-5 text-xs font-semibold uppercase text-foreground">Senior Product Designer</p>
+            <p className="mb-5 text-xs font-semibold uppercase text-highlight">Senior Product Designer</p>
             <p className="mb-4 text-sm font-medium uppercase text-foreground">Tobiloba Ademowo</p>
             <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl">
-              I design digital products that make complex things feel simple.
+              Designing digital products that make complex things simple, useful, and valuable.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-foreground sm:text-lg">
-              I help teams transform complex operational systems into intuitive digital experiences
-              across energy, government, fintech and consumer platforms.
+              I help teams transform complex operational systems into intuitive digital experiences that
+              improve adoption, usability, and business outcomes.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild className="bg-foreground text-background hover:bg-foreground/90">
+              <Button asChild className="bg-highlight text-highlight-foreground hover:bg-highlight/90">
                 <a href="#work">View selected work <ArrowDownRight /></a>
               </Button>
               <Button asChild variant="outline" className="border-foreground bg-background/20 text-foreground hover:bg-foreground hover:text-background">
-                <a href="#contact">Let&apos;s talk</a>
+                <a href="#contact">Let's talk</a>
               </Button>
             </div>
+            <p className="mt-6 text-xs uppercase tracking-wide text-foreground/70">
+              8+ years designing digital products · 🇳🇬 Lagos, Nigeria
+            </p>
           </div>
         </section>
 
         <section id="work" className="scroll-mt-6 py-20 sm:py-28">
-          <p className="text-xs font-semibold uppercase text-foreground">Selected Work</p>
+          <p className="text-xs font-semibold uppercase text-highlight">Selected Work</p>
           <div className="mt-5 max-w-3xl">
             <h2 className="font-display text-4xl font-bold sm:text-5xl">Products and systems designed for the real world.</h2>
             <p className="mt-5 leading-7 text-foreground">
-              A selection of products and systems I&apos;ve designed across energy, government, fintech and consumer experiences.
+              A selection of products and systems I've designed across energy, government, fintech and
+              consumer experiences.
             </p>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <article key={project.name} className="group overflow-hidden rounded-lg border border-border bg-card">
-                <div className="flex aspect-[16/9] items-center justify-center border-b border-border bg-secondary">
-                  <div className="text-center text-foreground">
-                    <p className="text-xs font-semibold uppercase">Project visual</p>
-                    <p className="mt-2 font-display text-2xl font-bold">Coming soon</p>
-                  </div>
-                </div>
+                <ProjectVisual index={index} number={project.number} />
                 <div className="p-6 sm:p-8">
                   <div className="flex items-start justify-between gap-4">
-                    <p className="text-xs text-foreground">{project.number}</p>
-                    <ArrowRight aria-hidden="true" className="size-5 text-foreground transition-transform group-hover:translate-x-1" />
+                    <p className="text-xs font-semibold text-highlight">{project.number}</p>
+                    <ArrowRight aria-hidden="true" className="size-5 text-highlight transition-transform group-hover:translate-x-1" />
                   </div>
-                  <h3 className="mt-8 font-display text-3xl font-bold">{project.name}</h3>
+                  <h3 className="mt-6 font-display text-3xl font-bold">{project.name}</h3>
                   <p className="mt-3 leading-7 text-foreground">{project.summary}</p>
-                  <dl className="mt-8 grid gap-5 border-t border-border pt-5 text-xs sm:grid-cols-2">
-                    <div><dt className="font-semibold uppercase text-foreground">Role</dt><dd className="mt-2 text-foreground">{project.role}</dd></div>
-                    <div><dt className="font-semibold uppercase text-foreground">Industry</dt><dd className="mt-2 text-foreground">{project.industry}</dd></div>
-                  </dl>
+                  <p className="mt-6 border-t border-border pt-4 text-xs uppercase tracking-wide text-foreground/70">
+                    {project.industry}
+                  </p>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="about" className="grid scroll-mt-6 gap-10 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.7fr_1.3fr]">
-          <p className="text-xs font-semibold uppercase text-foreground">About</p>
+        <section id="about" className="grid scroll-mt-6 gap-12 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="relative flex items-end overflow-hidden rounded-lg border border-border bg-secondary p-8 min-h-[16rem]">
+            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 200 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="about-grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="oklch(0.22 0 0)" />
+                  <stop offset="100%" stopColor="oklch(0.10 0 0)" />
+                </linearGradient>
+              </defs>
+              <rect width="200" height="160" fill="url(#about-grad)" />
+              <g fill="none">
+                <rect x="20" y="40" width="160" height="2" fill={ORANGE} opacity="0.9" />
+                <rect x="40" y="70" width="120" height="2" fill={ORANGE} opacity="0.5" />
+                <rect x="60" y="100" width="80" height="2" fill={ORANGE} opacity="0.25" />
+                <circle cx="160" cy="40" r="8" fill={ORANGE} opacity="0.9" />
+                <rect x="100" y="20" width="2" height="120" fill="oklch(0.97 0 0 / 0.15)" />
+              </g>
+            </svg>
+            <p className="relative z-10 font-display text-2xl font-bold text-foreground">Curiosity brought me into design.</p>
+          </div>
           <div>
-            <h2 className="font-display text-4xl font-bold sm:text-5xl">Designing clarity into complex systems.</h2>
+            <p className="text-xs font-semibold uppercase text-highlight">About</p>
+            <h2 className="mt-4 font-display text-4xl font-bold sm:text-5xl">Curiosity brought me into design. Purpose keeps me here.</h2>
             <div className="mt-7 space-y-5 text-base leading-8 text-foreground">
-              <p>I&apos;m a Senior Product Designer focused on turning complex products, workflows and services into experiences people can understand and trust.</p>
-              <p>I enjoy working where product design meets real-world constraints—payments, operations, government services, energy and everyday consumer needs.</p>
-              <p>My approach starts with understanding the problem, bringing structure to complexity and designing experiences that work for both people and the business.</p>
+              <p>I began my career in graphic and brand design while studying Computer Science at Yaba College of Technology, drawn equally to how things looked and how they worked. That curiosity led me into Product Design, where I found I could combine both instincts to build things that actually improve how people get things done.</p>
+              <p>Today I design across enterprise platforms, government systems and consumer products, usually where the operational complexity is high and the trust required from users is higher.</p>
             </div>
-          </div>
-        </section>
-
-        <section id="capabilities" className="grid scroll-mt-6 gap-12 py-20 sm:py-28 lg:grid-cols-2">
-          <div>
-            <p className="text-xs font-semibold uppercase text-foreground">Capabilities</p>
-            <ul className="mt-7 divide-y divide-border border-y border-border">
-              {capabilities.map((item, index) => (
-                <li key={item} className="flex items-center justify-between py-4 text-lg text-foreground">
-                  <span>{item}</span><span className="text-xs">0{index + 1}</span>
-                </li>
+            <dl className="mt-9 grid gap-5 border-t border-border pt-6 sm:grid-cols-2">
+              {facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="text-xs font-semibold uppercase text-highlight">{fact.label}</dt>
+                  <dd className="mt-2 text-sm text-foreground">{fact.value}</dd>
+                </div>
               ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase text-foreground">Industries</p>
-            <ul className="mt-7 divide-y divide-border border-y border-border">
-              {industries.map((item) => <li key={item} className="py-4 text-lg text-foreground">{item}</li>)}
-            </ul>
+            </dl>
           </div>
         </section>
 
-        <section id="contact" className="scroll-mt-6 rounded-lg border border-border bg-foreground px-7 py-16 text-background sm:px-12 sm:py-20">
-          <p className="text-xs font-semibold uppercase text-background">Contact</p>
+        <section id="contact" className="scroll-mt-6 rounded-lg border border-highlight bg-highlight px-7 py-16 text-highlight-foreground sm:px-12 sm:py-20">
+          <p className="text-xs font-semibold uppercase text-highlight-foreground/70">Get in Touch</p>
           <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-background">
-            I&apos;m open to Senior Product Design opportunities, product collaborations and conversations about meaningful digital products.
+          <p className="mt-6 max-w-2xl text-base leading-8 text-highlight-foreground/90">
+            I'm open to Senior Product Design opportunities, product collaborations and conversations about
+            meaningful digital products.
           </p>
-          <Button asChild variant="outline" className="mt-8 border-background bg-foreground text-background hover:bg-background hover:text-foreground">
-            <a href="#home">Let&apos;s talk <ArrowRight /></a>
+          <Button asChild className="mt-8 bg-background text-foreground hover:bg-background/85">
+            <a href="mailto:hello@tobilobaademowo.com">Email Me <ArrowRight /></a>
           </Button>
         </section>
 
