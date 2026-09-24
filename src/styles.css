@@ -19,8 +19,8 @@
  */
 
 @theme inline {
-  --font-sans: "DM Sans", sans-serif;
-  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Inter", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -104,6 +104,8 @@
   --hero-overlay: linear-gradient(90deg, oklch(0.08 0 0 / 0.74) 0%, oklch(0.08 0 0 / 0.22) 58%, transparent 100%);
   --highlight: oklch(0.70 0.18 52);
   --highlight-foreground: oklch(0.115 0 0);
+  --contact-background: oklch(0.19 0.025 45);
+  --contact-line: oklch(0.70 0.18 52 / 0.13);
 }
 
 .dark {
@@ -168,4 +170,13 @@
 
 @utility contact-art {
   background: linear-gradient(145deg, transparent 45%, oklch(0.12 0 0 / 0.82));
+}
+
+@utility contact-pattern {
+  position: relative;
+  background-color: var(--contact-background);
+  background-image:
+    linear-gradient(135deg, var(--contact-line) 1px, transparent 1px),
+    linear-gradient(45deg, var(--contact-line) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
