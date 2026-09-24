@@ -4,6 +4,13 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/portfolio-hero.jpg";
+import portraitAsset from "@/assets/tobiloba-portrait.jpg.asset.json";
+import boostxpressAsset from "@/assets/boostxpress.jpg.asset.json";
+import mvaaAsset from "@/assets/mvaa.jpg.asset.json";
+import citiXAsset from "@/assets/citi-x.jpg.asset.json";
+import tradeGridAsset from "@/assets/tradegrid-mobile.jpg.asset.json";
+import terminalOneAsset from "@/assets/terminal-one.jpg.asset.json";
+import pmlConceptsAsset from "@/assets/pml-concepts.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,36 +47,42 @@ const projects = [
     name: "BoostXpress",
     summary: "Reimagining the everyday fueling experience.",
     industry: "Energy / FinTech",
+    image: boostxpressAsset.url,
   },
   {
     number: "02",
     name: "MVAA Learner's Permit System",
     summary: "Digitising a complex government service end to end.",
     industry: "Government / Public Services",
+    image: mvaaAsset.url,
   },
   {
     number: "03",
-    name: "TradeGrid Mobile",
-    summary: "Energy trading, clear and on the move.",
-    industry: "Energy / B2B",
-  },
-  {
-    number: "04",
     name: "Citi X",
     summary: "Making visa applications easier to submit, track and manage.",
     industry: "Travel / Government",
+    image: citiXAsset.url,
+  },
+  {
+    number: "04",
+    name: "TradeGrid Mobile",
+    summary: "Energy trading, clear and on the move.",
+    industry: "Energy / B2B",
+    image: tradeGridAsset.url,
   },
   {
     number: "05",
     name: "Terminal One",
     summary: "Turning complex energy trading into a clearer workflow.",
     industry: "Energy / B2B",
+    image: terminalOneAsset.url,
   },
   {
     number: "06",
     name: "PMLConcepts",
     summary: "Brand and product concept exploration.",
     industry: "Brand / Product",
+    image: pmlConceptsAsset.url,
   },
 ];
 
@@ -79,44 +92,6 @@ const facts = [
   { label: "Experience", value: "8+ years designing digital products" },
   { label: "Based in", value: "🇳🇬 Lagos, Nigeria" },
 ];
-
-const ORANGE = "oklch(0.70 0.18 52)";
-
-function ProjectVisual({ index, number }: { index: number; number: string }) {
-  const rotate = [-14, 9, -7, 16, -11, 7][index % 6];
-  const gid = `pg-${index}`;
-  return (
-    <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden border-b border-border bg-secondary">
-      <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 160 90"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="oklch(0.21 0 0)" />
-            <stop offset="100%" stopColor="oklch(0.10 0 0)" />
-          </linearGradient>
-          <pattern id={`grid-${index}`} width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="oklch(0.97 0 0 / 0.06)" strokeWidth="0.5" />
-          </pattern>
-        </defs>
-        <rect width="160" height="90" fill={`url(#${gid})`} />
-        <rect width="160" height="90" fill={`url(#grid-${index})`} />
-        <g transform={`rotate(${rotate} 80 45)`} fill="none">
-          <rect x="18" y="28" width="124" height="2" fill={`${ORANGE}`} opacity="0.95" />
-          <rect x="40" y="44" width="82" height="2" fill={`${ORANGE}`} opacity="0.55" />
-          <rect x="62" y="60" width="42" height="2" fill={`${ORANGE}`} opacity="0.3" />
-          <circle cx="128" cy="30" r="6" fill={`${ORANGE}`} opacity="0.95" />
-          <rect x="30" y="18" width="2" height="56" fill="oklch(0.97 0 0 / 0.18)" />
-          <rect x="110" y="18" width="2" height="56" fill="oklch(0.97 0 0 / 0.1)" />
-        </g>
-      </svg>
-      <span className="relative z-10 font-display text-6xl font-bold text-foreground/85">{number}</span>
-    </div>
-  );
-}
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -146,9 +121,7 @@ function Index() {
         className="fixed inset-y-3 left-3 z-40 flex w-[13.5rem] -translate-x-[120%] flex-col overflow-y-auto rounded-lg border border-border bg-sidebar p-3 shadow-2xl transition-transform duration-300 data-[open=true]:translate-x-0 sm:inset-y-5 sm:left-5 lg:inset-y-6 lg:left-6 lg:w-[13.5rem] lg:translate-x-0"
       >
         <a href="#home" className="flex items-center gap-2.5 px-1 py-8" onClick={() => setMenuOpen(false)}>
-          <span className="flex size-11 items-center justify-center rounded-xl border border-border bg-foreground text-xs font-semibold text-background">
-            TAS
-          </span>
+          <img src={portraitAsset.url} alt="Tobiloba Ademowo" className="size-11 rounded-xl border border-border object-cover object-[50%_26%]" />
           <span className="text-sm font-medium">Tobiloba Ademowo</span>
         </a>
 
@@ -196,7 +169,6 @@ function Index() {
           />
           <div className="relative z-10 mb-[6vh] max-w-4xl">
             <p className="mb-5 text-xs font-semibold uppercase text-highlight">Senior Product Designer</p>
-            <p className="mb-4 text-sm font-medium uppercase text-foreground">Tobiloba Ademowo</p>
             <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl">
               Designing digital products that make complex things simple, useful, and valuable.
             </h1>
@@ -229,9 +201,15 @@ function Index() {
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <article key={project.name} className="group overflow-hidden rounded-lg border border-border bg-card">
-                <ProjectVisual index={index} number={project.number} />
+                <div className="aspect-[16/9] overflow-hidden border-b border-border bg-secondary">
+                  <img
+                    src={project.image}
+                    alt={`${project.name} project preview`}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+                  />
+                </div>
                 <div className="p-6 sm:p-8">
                   <div className="flex items-start justify-between gap-4">
                     <p className="text-xs font-semibold text-highlight">{project.number}</p>
@@ -249,24 +227,11 @@ function Index() {
         </section>
 
         <section id="about" className="grid scroll-mt-6 gap-12 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="relative flex items-end overflow-hidden rounded-lg border border-border bg-secondary p-8 min-h-[16rem]">
-            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 200 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <linearGradient id="about-grad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.22 0 0)" />
-                  <stop offset="100%" stopColor="oklch(0.10 0 0)" />
-                </linearGradient>
-              </defs>
-              <rect width="200" height="160" fill="url(#about-grad)" />
-              <g fill="none">
-                <rect x="20" y="40" width="160" height="2" fill={ORANGE} opacity="0.9" />
-                <rect x="40" y="70" width="120" height="2" fill={ORANGE} opacity="0.5" />
-                <rect x="60" y="100" width="80" height="2" fill={ORANGE} opacity="0.25" />
-                <circle cx="160" cy="40" r="8" fill={ORANGE} opacity="0.9" />
-                <rect x="100" y="20" width="2" height="120" fill="oklch(0.97 0 0 / 0.15)" />
-              </g>
-            </svg>
-            <p className="relative z-10 font-display text-2xl font-bold text-foreground">Curiosity brought me into design.</p>
+          <div className="relative min-h-[24rem] overflow-hidden rounded-lg border border-border bg-secondary lg:min-h-[36rem]">
+            <img src={portraitAsset.url} alt="Tobiloba Ademowo working on a laptop" className="absolute inset-0 h-full w-full object-cover object-[50%_34%]" />
+            <div className="absolute inset-x-0 bottom-0 bg-background/80 p-6 backdrop-blur-sm">
+              <p className="font-display text-2xl font-bold text-foreground">Curiosity brought me into design.</p>
+            </div>
           </div>
           <div>
             <p className="text-xs font-semibold uppercase text-highlight">About</p>
@@ -286,14 +251,14 @@ function Index() {
           </div>
         </section>
 
-        <section id="contact" className="scroll-mt-6 rounded-lg border border-highlight bg-highlight px-7 py-16 text-highlight-foreground sm:px-12 sm:py-20">
-          <p className="text-xs font-semibold uppercase text-highlight-foreground/70">Get in Touch</p>
+        <section id="contact" className="contact-pattern scroll-mt-6 overflow-hidden rounded-lg border border-highlight/50 px-7 py-16 text-foreground sm:px-12 sm:py-20">
+          <p className="text-xs font-semibold uppercase text-highlight">Get in Touch</p>
           <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-highlight-foreground/90">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-foreground/80">
             I'm open to Senior Product Design opportunities, product collaborations and conversations about
             meaningful digital products.
           </p>
-          <Button asChild className="mt-8 bg-background text-foreground hover:bg-background/85">
+          <Button asChild className="mt-8 bg-highlight text-highlight-foreground hover:bg-highlight/90">
             <a href="mailto:hello@tobilobaademowo.com">Email Me <ArrowRight /></a>
           </Button>
         </section>
