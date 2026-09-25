@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Senior Product Designer designing digital products that make complex things simple, useful, and valuable.",
+          "Senior Product Designer designing digital products with clarity and purpose — turning complex systems into intuitive experiences.",
       },
       { property: "og:title", content: "Tobiloba Ademowo — Senior Product Designer" },
       {
@@ -170,7 +170,7 @@ function Index() {
           <div className="relative z-10 mb-[6vh] max-w-4xl">
             <p className="mb-5 text-xs font-semibold uppercase text-highlight">Senior Product Designer</p>
             <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl">
-              Designing digital products that make complex things simple, useful, and valuable.
+              Designing digital products with clarity and purpose.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-foreground sm:text-lg">
               I help teams transform complex operational systems into intuitive digital experiences that
@@ -245,7 +245,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="contact" className="contact-geometry scroll-mt-6 overflow-hidden rounded-lg border border-highlight/40 px-7 py-16 text-foreground sm:px-12 sm:py-20">
+        <section id="contact" className="contact-geometry scroll-mt-6 overflow-hidden rounded-lg border border-border px-7 py-16 text-foreground sm:px-12 sm:py-20">
           <div className="relative z-10">
             <p className="text-xs font-semibold uppercase text-highlight">Get in Touch</p>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
