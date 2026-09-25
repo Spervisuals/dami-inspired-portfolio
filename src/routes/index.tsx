@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Mail, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/portfolio-hero.jpg";
-import portraitAsset from "@/assets/tobiloba-portrait.jpg.asset.json";
+import portraitAsset from "@/assets/tobiloba-profile-2026.png.asset.json";
 import boostxpressAsset from "@/assets/boostxpress.jpg.asset.json";
 import mvaaAsset from "@/assets/mvaa.jpg.asset.json";
 import citiXAsset from "@/assets/citi-x.jpg.asset.json";
@@ -144,10 +144,8 @@ function Index() {
 
         <div className="mt-auto pt-8">
           <div className="rounded-lg bg-secondary p-3">
+            <Mail aria-hidden="true" className="mb-3 size-5 text-highlight" />
             <h2 className="text-base font-semibold">Have a complex problem worth solving?</h2>
-            <p className="mt-2 text-xs leading-5 text-foreground">
-              I'm open to senior product design opportunities and product collaborations.
-            </p>
             <Button asChild className="mt-3 w-full bg-highlight text-highlight-foreground hover:bg-highlight/90">
               <a href="#contact" onClick={() => setMenuOpen(false)}>Let's talk</a>
             </Button>
@@ -177,7 +175,7 @@ function Index() {
               improve adoption, usability, and business outcomes.
             </p>
             <div className="mt-7">
-              <Button asChild variant="outline" className="border-foreground bg-background/20 text-foreground hover:bg-foreground hover:text-background">
+              <Button asChild className="bg-highlight text-highlight-foreground hover:bg-highlight/90">
                 <a href="#contact">Let's talk</a>
               </Button>
             </div>
@@ -191,10 +189,6 @@ function Index() {
           <p className="text-xs font-semibold uppercase text-highlight">Selected Work</p>
           <div className="mt-5 max-w-3xl">
             <h2 className="font-display text-4xl font-bold sm:text-5xl">Products and systems designed for the real world.</h2>
-            <p className="mt-5 leading-7 text-foreground">
-              A selection of products and systems I've designed across energy, government, fintech and
-              consumer experiences.
-            </p>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -259,9 +253,8 @@ function Index() {
           </div>
         </section>
 
-        <footer className="flex flex-col gap-7 px-1 py-10 text-sm text-foreground sm:flex-row sm:items-end sm:justify-between">
-          <div><p className="font-semibold">Tobiloba Ademowo</p><p className="mt-1">Senior Product Designer</p></div>
-          <p>Designing clarity into complexity.</p>
+        <footer className="flex flex-col gap-7 px-1 py-10 text-sm text-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Tobiloba Ademowo</p>
           <div className="flex gap-5"><a href="#work">Selected Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
         </footer>
       </div>

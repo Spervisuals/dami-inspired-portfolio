@@ -14,3 +14,4 @@
 - [x] Simplify the hero action and remove project numbering.
 - [x] Reposition project industries and arrows with a hover label.
 - [x] Remove the About photo overlay and add geometric contact artwork.
+- [x] Update sidebar CTA, hero CTA, selected work text, footer, and portrait.
