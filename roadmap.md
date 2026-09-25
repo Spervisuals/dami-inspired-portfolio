@@ -10,3 +10,7 @@
 - [x] Add the supplied portrait and project imagery.
 - [x] Reorder Citi X and TradeGrid Mobile as projects 03 and 04.
 - [x] Switch typography to Inter and soften the contact panel.
+- [x] Add the designer's name to the mobile header.
+- [x] Simplify the hero action and remove project numbering.
+- [x] Reposition project industries and arrows with a hover label.
+- [x] Remove the About photo overlay and add geometric contact artwork.

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDownRight, ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -43,42 +43,36 @@ const navigation = [
 
 const projects = [
   {
-    number: "01",
     name: "BoostXpress",
     summary: "Reimagining the everyday fueling experience.",
     industry: "Energy / FinTech",
     image: boostxpressAsset.url,
   },
   {
-    number: "02",
     name: "MVAA Learner's Permit System",
     summary: "Digitising a complex government service end to end.",
     industry: "Government / Public Services",
     image: mvaaAsset.url,
   },
   {
-    number: "03",
     name: "Citi X",
     summary: "Making visa applications easier to submit, track and manage.",
     industry: "Travel / Government",
     image: citiXAsset.url,
   },
   {
-    number: "04",
     name: "TradeGrid Mobile",
     summary: "Energy trading, clear and on the move.",
     industry: "Energy / B2B",
     image: tradeGridAsset.url,
   },
   {
-    number: "05",
     name: "Terminal One",
     summary: "Turning complex energy trading into a clearer workflow.",
     industry: "Energy / B2B",
     image: terminalOneAsset.url,
   },
   {
-    number: "06",
     name: "PMLConcepts",
     summary: "Brand and product concept exploration.",
     industry: "Brand / Product",
@@ -97,12 +91,18 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-background p-3 text-foreground sm:p-5 lg:p-6">
+    <main className="min-h-screen bg-background px-3 pb-3 pt-20 text-foreground sm:px-5 sm:pb-5 sm:pt-24 lg:p-6">
+      <header className="fixed inset-x-3 top-3 z-40 grid h-14 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-border bg-background/90 px-4 backdrop-blur-md sm:inset-x-5 sm:top-5 lg:hidden">
+        <a href="#home" className="min-w-0 truncate text-sm font-semibold">
+          Tobiloba Ademowo
+        </a>
+        <span className="size-10 shrink-0" aria-hidden="true" />
+      </header>
       <Button
         aria-label={menuOpen ? "Close menu" : "Open menu"}
         variant="secondary"
         size="icon"
-        className="fixed right-4 top-4 z-50 border border-border shadow-xl lg:hidden"
+        className="fixed right-5 top-5 z-50 border border-border shadow-xl sm:right-7 sm:top-7 lg:hidden"
         onClick={() => setMenuOpen((current) => !current)}
       >
         {menuOpen ? <X /> : <Menu />}
@@ -176,10 +176,7 @@ function Index() {
               I help teams transform complex operational systems into intuitive digital experiences that
               improve adoption, usability, and business outcomes.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild className="bg-highlight text-highlight-foreground hover:bg-highlight/90">
-                <a href="#work">View selected work <ArrowDownRight /></a>
-              </Button>
+            <div className="mt-7">
               <Button asChild variant="outline" className="border-foreground bg-background/20 text-foreground hover:bg-foreground hover:text-background">
                 <a href="#contact">Let's talk</a>
               </Button>
@@ -211,15 +208,15 @@ function Index() {
                   />
                 </div>
                 <div className="p-6 sm:p-8">
-                  <div className="flex items-start justify-between gap-4">
-                    <p className="text-xs font-semibold text-highlight">{project.number}</p>
-                    <ArrowRight aria-hidden="true" className="size-5 text-highlight transition-transform group-hover:translate-x-1" />
-                  </div>
-                  <h3 className="mt-6 font-display text-3xl font-bold">{project.name}</h3>
+                  <p className="text-xs font-semibold uppercase text-highlight">{project.industry}</p>
+                  <h3 className="mt-5 font-display text-3xl font-bold">{project.name}</h3>
                   <p className="mt-3 leading-7 text-foreground">{project.summary}</p>
-                  <p className="mt-6 border-t border-border pt-4 text-xs uppercase tracking-wide text-foreground/70">
-                    {project.industry}
-                  </p>
+                  <div className="mt-6 flex min-h-10 items-center justify-end border-t border-border pt-4">
+                    <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-highlight opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                      View project
+                    </span>
+                    <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-highlight transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
               </article>
             ))}
@@ -229,9 +226,6 @@ function Index() {
         <section id="about" className="grid scroll-mt-6 gap-12 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative min-h-[24rem] overflow-hidden rounded-lg border border-border bg-secondary lg:min-h-[36rem]">
             <img src={portraitAsset.url} alt="Tobiloba Ademowo working on a laptop" className="absolute inset-0 h-full w-full object-cover object-[50%_34%]" />
-            <div className="absolute inset-x-0 bottom-0 bg-background/80 p-6 backdrop-blur-sm">
-              <p className="font-display text-2xl font-bold text-foreground">Curiosity brought me into design.</p>
-            </div>
           </div>
           <div>
             <p className="text-xs font-semibold uppercase text-highlight">About</p>
@@ -251,16 +245,18 @@ function Index() {
           </div>
         </section>
 
-        <section id="contact" className="contact-pattern scroll-mt-6 overflow-hidden rounded-lg border border-highlight/50 px-7 py-16 text-foreground sm:px-12 sm:py-20">
-          <p className="text-xs font-semibold uppercase text-highlight">Get in Touch</p>
-          <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-foreground/80">
-            I'm open to Senior Product Design opportunities, product collaborations and conversations about
-            meaningful digital products.
-          </p>
-          <Button asChild className="mt-8 bg-highlight text-highlight-foreground hover:bg-highlight/90">
-            <a href="mailto:hello@tobilobaademowo.com">Email Me <ArrowRight /></a>
-          </Button>
+        <section id="contact" className="contact-geometry scroll-mt-6 overflow-hidden rounded-lg border border-highlight/40 px-7 py-16 text-foreground sm:px-12 sm:py-20">
+          <div className="relative z-10">
+            <p className="text-xs font-semibold uppercase text-highlight">Get in Touch</p>
+            <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-foreground/80">
+              I'm open to Senior Product Design opportunities, product collaborations and conversations about
+              meaningful digital products.
+            </p>
+            <Button asChild className="mt-8 bg-highlight text-highlight-foreground hover:bg-highlight/90">
+              <a href="mailto:hello@tobilobaademowo.com">Email Me <ArrowRight /></a>
+            </Button>
+          </div>
         </section>
 
         <footer className="flex flex-col gap-7 px-1 py-10 text-sm text-foreground sm:flex-row sm:items-end sm:justify-between">
