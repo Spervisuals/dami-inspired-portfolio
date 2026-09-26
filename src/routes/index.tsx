@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Mail, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -118,7 +118,7 @@ function Index() {
 
       <aside
         data-open={menuOpen}
-        className="fixed inset-y-3 left-3 z-40 flex w-[13.5rem] -translate-x-[120%] flex-col overflow-y-auto rounded-lg border border-border bg-sidebar p-3 shadow-2xl transition-transform duration-300 data-[open=true]:translate-x-0 sm:inset-y-5 sm:left-5 lg:inset-y-6 lg:left-6 lg:w-[13.5rem] lg:translate-x-0"
+        className="fixed inset-y-3 left-3 z-40 flex w-[14.125rem] -translate-x-[120%] flex-col overflow-y-auto rounded-lg border border-border bg-sidebar p-3 shadow-2xl transition-transform duration-300 data-[open=true]:translate-x-0 sm:inset-y-5 sm:left-5 lg:inset-y-6 lg:left-6 lg:translate-x-0"
       >
         <a href="#home" className="flex items-center gap-2.5 px-1 py-8" onClick={() => setMenuOpen(false)}>
           <img src={portraitAsset.url} alt="Tobiloba Ademowo" className="size-11 rounded-xl border border-border object-cover object-[50%_26%]" />
@@ -144,7 +144,6 @@ function Index() {
 
         <div className="mt-auto pt-8">
           <div className="rounded-lg bg-secondary p-3">
-            <Mail aria-hidden="true" className="mb-3 size-5 text-foreground/65" />
             <h2 className="text-base font-semibold">Got a project in mind?</h2>
             <p className="mt-2 text-xs leading-5 text-foreground/75">I’d love to hear about it. Reach me at</p>
             <a className="mt-1 block break-all text-[11px] leading-5 text-foreground/75 underline underline-offset-2 hover:text-foreground" href="mailto:ademowotobi@gmail.com">ademowotobi@gmail.com</a>
@@ -155,17 +154,17 @@ function Index() {
         </div>
       </aside>
 
-      <div className="lg:ml-[14.9rem]">
+      <div className="lg:ml-[15.525rem]">
         <section
           id="home"
-          className="hero-shade relative flex min-h-[calc(100svh-7rem)] scroll-mt-6 items-end overflow-hidden rounded-lg border border-border bg-background p-6 sm:min-h-[calc(100svh-8rem)] sm:p-10 lg:min-h-[min(calc(100svh-8rem),58rem)] lg:p-11"
+          className="hero-shade relative flex min-h-[calc(100svh-7rem)] scroll-mt-6 items-end overflow-hidden rounded-lg border border-border bg-background p-6 sm:min-h-[calc(100svh-8rem)] sm:p-10 lg:min-h-[calc(100svh-3rem)] lg:p-11"
         >
           <img
             src={heroImage}
             alt="Abstract monochrome architectural forms"
             width={1920}
             height={1280}
-            className="absolute inset-0 h-full w-full object-cover lg:inset-x-0 lg:top-[30px] lg:h-auto lg:object-contain"
+            className="absolute inset-0 h-full w-full object-cover object-right"
           />
           <div className="relative z-10 grid w-full items-end gap-8 pb-2 lg:grid-cols-[minmax(0,1fr)_minmax(11rem,0.38fr)] lg:gap-10">
             <div className="max-w-3xl">
@@ -257,7 +256,7 @@ function Index() {
           </div>
         </section>
 
-        <footer className="flex flex-col gap-7 px-1 py-10 text-sm text-foreground sm:flex-row sm:items-center sm:justify-between">
+        <footer className="flex flex-col gap-7 px-1 py-10 text-sm text-foreground/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Tobiloba Ademowo</p>
           <div className="flex gap-5"><a href="#work">Selected Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
         </footer>
