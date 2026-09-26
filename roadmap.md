@@ -15,3 +15,6 @@
 - [x] Reposition project industries and arrows with a hover label.
 - [x] Remove the About photo overlay and add geometric contact artwork.
 - [x] Update sidebar CTA, hero CTA, selected work text, footer, and portrait.
+- [x] Revise sidebar contact copy and email address.
+- [x] Split hero content into two columns and show the full artwork lower on desktop.
+- [x] Restrict project and About labels to light gray, keeping orange for section labels and CTAs.

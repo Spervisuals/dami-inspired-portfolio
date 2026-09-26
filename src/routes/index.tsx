@@ -144,10 +144,11 @@ function Index() {
 
         <div className="mt-auto pt-8">
           <div className="rounded-lg bg-secondary p-3">
-            <Mail aria-hidden="true" className="mb-3 size-5 text-highlight" />
-            <h2 className="text-base font-semibold">Have a complex problem worth solving?</h2>
+            <Mail aria-hidden="true" className="mb-3 size-5 text-foreground/65" />
+            <h2 className="text-base font-semibold">Got a project in mind?</h2>
+            <p className="mt-2 text-xs leading-5 text-foreground/75">I’d love to hear about it. Reach me at <a className="break-all underline underline-offset-2 hover:text-foreground" href="mailto:ademowotobi@gmail.com">ademowotobi@gmail.com</a></p>
             <Button asChild className="mt-3 w-full bg-highlight text-highlight-foreground hover:bg-highlight/90">
-              <a href="#contact" onClick={() => setMenuOpen(false)}>Let's talk</a>
+              <a href="mailto:ademowotobi@gmail.com">Let’s talk <ArrowRight aria-hidden="true" className="size-4" /></a>
             </Button>
           </div>
         </div>
@@ -156,30 +157,32 @@ function Index() {
       <div className="lg:ml-[14.9rem]">
         <section
           id="home"
-          className="hero-shade relative flex min-h-[calc(100vh-1.5rem)] scroll-mt-6 items-end overflow-hidden rounded-lg border border-border p-6 sm:min-h-[calc(100vh-2.5rem)] sm:p-10 lg:min-h-[calc(100vh-3rem)] lg:p-11"
+          className="hero-shade relative flex min-h-[calc(100svh-7rem)] scroll-mt-6 items-end overflow-hidden rounded-lg border border-border bg-background p-6 sm:min-h-[calc(100svh-8rem)] sm:p-10 lg:min-h-[min(calc(100svh-8rem),58rem)] lg:p-11"
         >
           <img
             src={heroImage}
             alt="Abstract monochrome architectural forms"
             width={1920}
             height={1280}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover lg:inset-x-0 lg:top-[30px] lg:h-auto lg:object-contain"
           />
-          <div className="relative z-10 mb-[6vh] max-w-4xl">
-            <p className="mb-5 text-xs font-semibold uppercase text-highlight">Senior Product Designer</p>
-            <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl">
-              Designing digital products with clarity and purpose.
-            </h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-foreground sm:text-lg">
-              I help teams transform complex operational systems into intuitive digital experiences that
-              improve adoption, usability, and business outcomes.
-            </p>
-            <div className="mt-7">
-              <Button asChild className="bg-highlight text-highlight-foreground hover:bg-highlight/90">
-                <a href="#contact">Let's talk</a>
-              </Button>
+          <div className="relative z-10 grid w-full items-end gap-8 pb-2 lg:grid-cols-[minmax(0,1fr)_minmax(11rem,0.38fr)] lg:gap-10">
+            <div className="max-w-3xl">
+              <p className="mb-5 text-xs font-semibold uppercase text-highlight">Senior Product Designer</p>
+              <h1 className="font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-6xl xl:text-7xl">
+                Designing digital products with clarity and purpose.
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-foreground sm:text-lg">
+                I help teams transform complex operational systems into intuitive digital experiences that
+                improve adoption, usability, and business outcomes.
+              </p>
+              <div className="mt-7">
+                <Button asChild className="bg-highlight text-highlight-foreground hover:bg-highlight/90">
+                  <a href="#contact">Let's talk</a>
+                </Button>
+              </div>
             </div>
-            <p className="mt-6 text-xs uppercase tracking-wide text-foreground/70">
+            <p className="text-xs uppercase leading-5 text-foreground/70 lg:justify-self-end lg:text-right">
               8+ years designing digital products · 🇳🇬 Lagos, Nigeria
             </p>
           </div>
@@ -202,14 +205,14 @@ function Index() {
                   />
                 </div>
                 <div className="p-6 sm:p-8">
-                  <p className="text-xs font-semibold uppercase text-highlight">{project.industry}</p>
+                  <p className="text-xs font-semibold uppercase text-foreground/60">{project.industry}</p>
                   <h3 className="mt-5 font-display text-3xl font-bold">{project.name}</h3>
                   <p className="mt-3 leading-7 text-foreground">{project.summary}</p>
                   <div className="mt-6 flex min-h-10 items-center justify-end border-t border-border pt-4">
-                    <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-highlight opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                       View project
                     </span>
-                    <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-highlight transition-transform group-hover:translate-x-1" />
+                    <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-foreground/70 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </article>
@@ -231,7 +234,7 @@ function Index() {
             <dl className="mt-9 grid gap-5 border-t border-border pt-6 sm:grid-cols-2">
               {facts.map((fact) => (
                 <div key={fact.label}>
-                  <dt className="text-xs font-semibold uppercase text-highlight">{fact.label}</dt>
+                    <dt className="text-xs font-semibold uppercase text-foreground/60">{fact.label}</dt>
                   <dd className="mt-2 text-sm text-foreground">{fact.value}</dd>
                 </div>
               ))}
@@ -248,7 +251,7 @@ function Index() {
               meaningful digital products.
             </p>
             <Button asChild className="mt-8 bg-highlight text-highlight-foreground hover:bg-highlight/90">
-              <a href="mailto:hello@tobilobaademowo.com">Email Me <ArrowRight /></a>
+              <a href="mailto:ademowotobi@gmail.com">Email Me <ArrowRight /></a>
             </Button>
           </div>
         </section>
