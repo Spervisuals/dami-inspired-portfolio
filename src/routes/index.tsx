@@ -164,7 +164,7 @@ function Index() {
             alt="Abstract monochrome architectural forms"
             width={1920}
             height={1280}
-            className="absolute inset-0 h-full w-full object-cover object-top"
+            className="absolute inset-0 h-full w-full object-cover object-[70%_0%]"
           />
           <div className="relative z-10 grid w-full items-end gap-8 pb-2 lg:grid-cols-[minmax(0,1fr)_minmax(11rem,0.38fr)] lg:gap-10">
             <div className="max-w-3xl">
