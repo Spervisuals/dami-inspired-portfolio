@@ -146,7 +146,7 @@ function Index() {
           <div className="rounded-lg bg-secondary p-3">
             <h2 className="text-base font-semibold">Got a project in mind?</h2>
             <p className="mt-2 text-xs leading-5 text-foreground/75">I’d love to hear about it. Reach me at</p>
-            <a className="mt-1 block break-all text-[11px] leading-5 text-foreground/75 underline underline-offset-2 hover:text-foreground" href="mailto:ademowotobi@gmail.com">ademowotobi@gmail.com</a>
+            <a className="mt-1 block break-all text-[13px] leading-5 text-foreground/75 underline underline-offset-2 hover:text-foreground" href="mailto:ademowotobi@gmail.com">ademowotobi@gmail.com</a>
             <Button asChild className="mt-3 w-full bg-highlight text-highlight-foreground hover:bg-highlight/90">
               <a href="mailto:ademowotobi@gmail.com">Let’s talk <ArrowRight aria-hidden="true" className="size-4" /></a>
             </Button>
@@ -164,7 +164,7 @@ function Index() {
             alt="Abstract monochrome architectural forms"
             width={1920}
             height={1280}
-            className="absolute inset-0 h-full w-full object-cover object-right"
+            className="absolute inset-0 h-full w-full object-cover object-[70%_0%]"
           />
           <div className="relative z-10 grid w-full items-end gap-8 pb-2 lg:grid-cols-[minmax(0,1fr)_minmax(11rem,0.38fr)] lg:gap-10">
             <div className="max-w-3xl">
