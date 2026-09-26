@@ -19,3 +19,5 @@
 - [x] Split hero content into two columns and show the full artwork lower on desktop.
 - [x] Restrict project and About labels to light gray, keeping orange for section labels and CTAs.
 - [x] Remove sidebar email icon, widen menu by 10px, match desktop hero height, fill hero with artwork, and gray the footer.
+- [x] Enlarge the sidebar email address while keeping it inside the card.
+- [x] Anchor the hero artwork to the top so the shape's top stays clear of the panel edge.
