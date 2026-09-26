@@ -146,7 +146,8 @@ function Index() {
           <div className="rounded-lg bg-secondary p-3">
             <Mail aria-hidden="true" className="mb-3 size-5 text-foreground/65" />
             <h2 className="text-base font-semibold">Got a project in mind?</h2>
-            <p className="mt-2 text-xs leading-5 text-foreground/75">I’d love to hear about it. Reach me at <a className="break-all underline underline-offset-2 hover:text-foreground" href="mailto:ademowotobi@gmail.com">ademowotobi@gmail.com</a></p>
+            <p className="mt-2 text-xs leading-5 text-foreground/75">I’d love to hear about it. Reach me at</p>
+            <a className="mt-1 block break-all text-[11px] leading-5 text-foreground/75 underline underline-offset-2 hover:text-foreground" href="mailto:ademowotobi@gmail.com">ademowotobi@gmail.com</a>
             <Button asChild className="mt-3 w-full bg-highlight text-highlight-foreground hover:bg-highlight/90">
               <a href="mailto:ademowotobi@gmail.com">Let’s talk <ArrowRight aria-hidden="true" className="size-4" /></a>
             </Button>
