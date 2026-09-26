@@ -133,7 +133,7 @@ function Index() {
               onClick={() => setMenuOpen(false)}
               className={`block rounded-md border-l-2 px-3 py-2.5 text-xs transition-colors ${
                 index === 0
-                  ? "border-highlight bg-sidebar-accent text-highlight"
+                  ? "border-foreground/70 bg-sidebar-accent text-foreground"
                   : "border-transparent text-foreground hover:bg-sidebar-accent"
               }`}
             >
