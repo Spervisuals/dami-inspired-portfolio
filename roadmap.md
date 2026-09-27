@@ -5,7 +5,7 @@
 - [x] Add custom monochrome cover art and profile imagery.
 - [x] Verify desktop and mobile previews.
 - [x] Replace the homepage with Tobiloba Ademowo's supplied portfolio content.
-- [x] Restrict all visible text to black and white.
+- [x] Restrict all visible text to black and white only.
 - [x] Verify the complete updated portfolio on desktop and mobile.
 - [x] Add the supplied portrait and project imagery.
 - [x] Reorder Citi X and TradeGrid Mobile as projects 03 and 04.
@@ -21,3 +21,5 @@
 - [x] Remove sidebar email icon, widen menu by 10px, match desktop hero height, fill hero with artwork, and gray the footer.
 - [x] Enlarge the sidebar email address while keeping it inside the card.
 - [x] Anchor the hero artwork to the top so the shape's top stays clear of the panel edge.
+- [x] Add clean, professional scroll-reveal animations across the sections.
+- [x] Remove the hero CTA, set Selected Work to three per row at 1440x1024, and clear the footer.
