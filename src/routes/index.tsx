@@ -47,37 +47,37 @@ const projects = [
     name: "BoostXpress",
     summary: "Reimagining the everyday fueling experience.",
     industry: "Energy / FinTech",
-    image: boostxpressAsset.url,
+    image: boostxpressImage,
   },
   {
     name: "MVAA Learner's Permit System",
     summary: "Digitising a complex government service end to end.",
     industry: "Government / Public Services",
-    image: mvaaAsset.url,
+    image: mvaaImage,
   },
   {
     name: "Citi X",
     summary: "Making visa applications easier to submit, track and manage.",
     industry: "Travel / Government",
-    image: citiXAsset.url,
+    image: citiXImage,
   },
   {
     name: "TradeGrid Mobile",
     summary: "Energy trading, clear and on the move.",
     industry: "Energy / B2B",
-    image: tradeGridAsset.url,
+    image: tradeGridImage,
   },
   {
     name: "Terminal One",
     summary: "Turning complex energy trading into a clearer workflow.",
     industry: "Energy / B2B",
-    image: terminalOneAsset.url,
+    image: terminalOneImage,
   },
   {
     name: "PMLConcepts",
     summary: "Brand and product concept exploration.",
     industry: "Brand / Product",
-    image: pmlConceptsAsset.url,
+    image: pmlConceptsImage,
   },
 ];
 
@@ -123,7 +123,7 @@ function Index() {
         className="fixed inset-y-3 left-3 z-40 flex w-[14.125rem] -translate-x-[120%] flex-col overflow-y-auto rounded-lg border border-border bg-sidebar p-3 shadow-2xl transition-transform duration-300 data-[open=true]:translate-x-0 sm:inset-y-5 sm:left-5 lg:inset-y-6 lg:left-6 lg:translate-x-0"
       >
         <a href="#home" className="flex items-center gap-2.5 px-1 py-8" onClick={() => setMenuOpen(false)}>
-          <img src={portraitAsset.url} alt="Tobiloba Ademowo" className="size-11 rounded-xl border border-border object-cover object-[50%_26%]" />
+          <img src={portraitImage} alt="Tobiloba Ademowo" className="size-11 rounded-xl border border-border object-cover object-[50%_26%]" />
           <span className="text-sm font-medium">Tobiloba Ademowo</span>
         </a>
 
@@ -226,7 +226,7 @@ function Index() {
 
         <section id="about" className="grid scroll-mt-24 lg:scroll-mt-6 gap-12 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative min-h-[24rem] overflow-hidden rounded-lg border border-border bg-secondary lg:min-h-[36rem]" data-reveal>
-            <img src={portraitAsset.url} alt="Tobiloba Ademowo working on a laptop" className="absolute inset-0 h-full w-full object-cover object-[50%_34%]" />
+            <img src={portraitImage} alt="Tobiloba Ademowo working on a laptop" className="absolute inset-0 h-full w-full object-cover object-[50%_34%]" />
           </div>
           <div data-reveal>
             <p className="text-xs font-semibold uppercase text-highlight">About</p>
