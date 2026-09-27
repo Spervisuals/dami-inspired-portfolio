@@ -4,13 +4,13 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/portfolio-hero.jpg";
-import portraitAsset from "@/assets/tobiloba-profile-2026.png.asset.json";
-import boostxpressAsset from "@/assets/boostxpress.jpg.asset.json";
-import mvaaAsset from "@/assets/mvaa.jpg.asset.json";
-import citiXAsset from "@/assets/citi-x.jpg.asset.json";
-import tradeGridAsset from "@/assets/tradegrid-mobile.jpg.asset.json";
-import terminalOneAsset from "@/assets/terminal-one.jpg.asset.json";
-import pmlConceptsAsset from "@/assets/pml-concepts.jpg.asset.json";
+import portraitImage from "@/assets/tobiloba-profile-2026.png";
+import boostxpressImage from "@/assets/boostxpress.jpg";
+import mvaaImage from "@/assets/mvaa.jpg";
+import citiXImage from "@/assets/citi-x.jpg";
+import tradeGridImage from "@/assets/tradegrid-mobile.jpg";
+import terminalOneImage from "@/assets/terminal-one.jpg";
+import pmlConceptsImage from "@/assets/pml-concepts.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
