@@ -33,13 +33,7 @@ export function useScrollReveal() {
 
     targets.forEach((element) => observer.observe(element));
 
-    // Safety net: never leave content hidden if the observer is unavailable.
-    const fallback = window.setTimeout(() => {
-      targets.forEach((element) => element.classList.add("is-visible"));
-    }, 2000);
-
     return () => {
-      window.clearTimeout(fallback);
       observer.disconnect();
       root.removeAttribute("data-reveal-ready");
     };
