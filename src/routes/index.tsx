@@ -11,6 +11,7 @@ import citiXAsset from "@/assets/citi-x.jpg.asset.json";
 import tradeGridAsset from "@/assets/tradegrid-mobile.jpg.asset.json";
 import terminalOneAsset from "@/assets/terminal-one.jpg.asset.json";
 import pmlConceptsAsset from "@/assets/pml-concepts.jpg.asset.json";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,6 +90,7 @@ const facts = [
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  useScrollReveal();
 
   return (
     <main className="min-h-screen bg-background px-3 pb-3 pt-20 text-foreground sm:px-5 sm:pb-5 sm:pt-24 lg:p-6">
@@ -154,7 +156,7 @@ function Index() {
         </div>
       </aside>
 
-      <div className="lg:ml-[15.525rem]">
+      <div className="pb-10 lg:ml-[15.525rem]">
         <section
           id="home"
           className="hero-shade relative flex min-h-[calc(100svh-7rem)] scroll-mt-6 items-end overflow-hidden rounded-lg border border-border bg-background p-6 sm:min-h-[calc(100svh-8rem)] sm:p-10 lg:min-h-[calc(100svh-3rem)] lg:p-11"
@@ -167,7 +169,7 @@ function Index() {
             className="absolute inset-0 h-full w-full object-cover object-[70%_0%]"
           />
           <div className="relative z-10 grid w-full items-end gap-8 pb-2 lg:grid-cols-[minmax(0,1fr)_minmax(11rem,0.38fr)] lg:gap-10">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-reveal>
               <p className="mb-5 text-xs font-semibold uppercase text-highlight">Senior Product Designer</p>
               <h1 className="font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-6xl xl:text-7xl">
                 Designing digital products with clarity and purpose.
@@ -176,39 +178,41 @@ function Index() {
                 I help teams transform complex operational systems into intuitive digital experiences that
                 improve adoption, usability, and business outcomes.
               </p>
-              <div className="mt-7">
-                <Button asChild className="bg-highlight text-highlight-foreground hover:bg-highlight/90">
-                  <a href="#contact">Let's talk</a>
-                </Button>
-              </div>
             </div>
-            <p className="text-xs uppercase leading-5 text-foreground/70 lg:justify-self-end lg:text-right">
+            <p className="text-xs uppercase leading-5 text-foreground/70 lg:justify-self-end lg:text-right" data-reveal>
               8+ years designing digital products · 🇳🇬 Lagos, Nigeria
             </p>
           </div>
         </section>
 
         <section id="work" className="scroll-mt-6 py-20 sm:py-28">
-          <p className="text-xs font-semibold uppercase text-highlight">Selected Work</p>
-          <div className="mt-5 max-w-3xl">
-            <h2 className="font-display text-4xl font-bold sm:text-5xl">Products and systems designed for the real world.</h2>
+          <div data-reveal>
+            <p className="text-xs font-semibold uppercase text-highlight">Selected Work</p>
+            <div className="mt-5 max-w-3xl">
+              <h2 className="font-display text-4xl font-bold sm:text-5xl">Products and systems designed for the real world.</h2>
+            </div>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {projects.map((project) => (
-              <article key={project.name} className="group overflow-hidden rounded-lg border border-border bg-card">
-                <div className="aspect-[16/9] overflow-hidden border-b border-border bg-secondary">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, index) => (
+              <article
+                key={project.name}
+                data-reveal
+                style={{ transitionDelay: `${(index % 3) * 90}ms` }}
+                className="group overflow-hidden rounded-lg border border-border bg-card"
+              >
+                <div className="aspect-[1440/1024] overflow-hidden border-b border-border bg-secondary">
                   <img
                     src={project.image}
                     alt={`${project.name} project preview`}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
                   />
                 </div>
-                <div className="p-6 sm:p-8">
+                <div className="p-5 sm:p-6">
                   <p className="text-xs font-semibold uppercase text-foreground/60">{project.industry}</p>
-                  <h3 className="mt-5 font-display text-3xl font-bold">{project.name}</h3>
-                  <p className="mt-3 leading-7 text-foreground">{project.summary}</p>
-                  <div className="mt-6 flex min-h-10 items-center justify-end border-t border-border pt-4">
+                  <h3 className="mt-4 font-display text-2xl font-bold leading-tight">{project.name}</h3>
+                  <p className="mt-2.5 text-sm leading-6 text-foreground">{project.summary}</p>
+                  <div className="mt-5 flex min-h-9 items-center justify-end border-t border-border pt-3.5">
                     <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                       View project
                     </span>
@@ -221,10 +225,10 @@ function Index() {
         </section>
 
         <section id="about" className="grid scroll-mt-6 gap-12 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="relative min-h-[24rem] overflow-hidden rounded-lg border border-border bg-secondary lg:min-h-[36rem]">
+          <div className="relative min-h-[24rem] overflow-hidden rounded-lg border border-border bg-secondary lg:min-h-[36rem]" data-reveal>
             <img src={portraitAsset.url} alt="Tobiloba Ademowo working on a laptop" className="absolute inset-0 h-full w-full object-cover object-[50%_34%]" />
           </div>
-          <div>
+          <div data-reveal>
             <p className="text-xs font-semibold uppercase text-highlight">About</p>
             <h2 className="mt-4 font-display text-4xl font-bold sm:text-5xl">Curiosity brought me into design. Purpose keeps me here.</h2>
             <div className="mt-7 space-y-5 text-base leading-8 text-foreground">
@@ -243,7 +247,7 @@ function Index() {
         </section>
 
         <section id="contact" className="contact-geometry scroll-mt-6 overflow-hidden rounded-lg border border-border px-7 py-16 text-foreground sm:px-12 sm:py-20">
-          <div className="relative z-10">
+          <div className="relative z-10" data-reveal>
             <p className="text-xs font-semibold uppercase text-highlight">Get in Touch</p>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-foreground/80">
@@ -255,11 +259,6 @@ function Index() {
             </Button>
           </div>
         </section>
-
-        <footer className="flex flex-col gap-7 px-1 py-10 text-sm text-foreground/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Tobiloba Ademowo</p>
-          <div className="flex gap-5"><a href="#work">Selected Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-        </footer>
       </div>
     </main>
   );
