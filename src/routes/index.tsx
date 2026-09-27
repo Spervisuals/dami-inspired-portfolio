@@ -159,7 +159,7 @@ function Index() {
       <div className="pb-10 lg:ml-[15.525rem]">
         <section
           id="home"
-          className="hero-shade relative flex min-h-[calc(100svh-7rem)] scroll-mt-6 items-end overflow-hidden rounded-lg border border-border bg-background p-6 sm:min-h-[calc(100svh-8rem)] sm:p-10 lg:min-h-[calc(100svh-3rem)] lg:p-11"
+          className="hero-shade relative flex min-h-[calc(100svh-7rem)] scroll-mt-24 lg:scroll-mt-6 items-end overflow-hidden rounded-lg border border-border bg-background p-6 sm:min-h-[calc(100svh-8rem)] sm:p-10 lg:min-h-[calc(100svh-3rem)] lg:p-11"
         >
           <img
             src={heroImage}
@@ -185,7 +185,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="work" className="scroll-mt-6 py-20 sm:py-28">
+        <section id="work" className="scroll-mt-24 lg:scroll-mt-6 py-20 sm:py-28">
           <div data-reveal>
             <p className="text-xs font-semibold uppercase text-highlight">Selected Work</p>
             <div className="mt-5 max-w-3xl">
@@ -224,7 +224,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="about" className="grid scroll-mt-6 gap-12 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.85fr_1.15fr]">
+        <section id="about" className="grid scroll-mt-24 lg:scroll-mt-6 gap-12 border-y border-border py-20 sm:py-28 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative min-h-[24rem] overflow-hidden rounded-lg border border-border bg-secondary lg:min-h-[36rem]" data-reveal>
             <img src={portraitAsset.url} alt="Tobiloba Ademowo working on a laptop" className="absolute inset-0 h-full w-full object-cover object-[50%_34%]" />
           </div>
@@ -246,7 +246,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="contact" className="contact-geometry scroll-mt-6 overflow-hidden rounded-lg border border-border px-7 py-16 text-foreground sm:px-12 sm:py-20">
+        <section id="contact" className="contact-geometry scroll-mt-24 lg:scroll-mt-6 overflow-hidden rounded-lg border border-border px-7 py-16 text-foreground sm:px-12 sm:py-20">
           <div className="relative z-10" data-reveal>
             <p className="text-xs font-semibold uppercase text-highlight">Get in Touch</p>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
