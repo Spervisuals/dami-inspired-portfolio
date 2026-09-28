@@ -20,19 +20,22 @@ export const Route = createFileRoute("/projects/boostxpress")({
 });
 
 const chapters = [
-  { id: "overview", title: "Overview" },
-  { id: "challenge", title: "The challenge" },
-  { id: "goals", title: "Goals" },
-  { id: "approach", title: "Approach" },
-  { id: "process", title: "The process" },
+  { id: "problem", title: "The problem" },
+  { id: "thinking", title: "My thinking" },
+  { id: "business", title: "The business" },
   { id: "solution", title: "The solution" },
+  { id: "experience", title: "Key experience" },
+  { id: "ecosystem", title: "The ecosystem" },
   { id: "outcome", title: "Outcome" },
-  { id: "reflection", title: "Reflection" },
 ];
 
-function DraftText({ children }: { children: string }) {
-  return <p className="max-w-2xl text-base leading-8 text-foreground/55 sm:text-lg">{children}</p>;
-}
+const metadata = [
+  { label: "Role", value: "Product Designer" },
+  { label: "Company", value: "TradeGrid" },
+  { label: "Platform", value: "iOS · Android · Station POS" },
+  { label: "Scope", value: "Product Strategy · UX Design · UI Design · Prototyping" },
+  { label: "Timeline", value: "[Add timeline]" },
+];
 
 function StorySection({
   id,
@@ -53,6 +56,97 @@ function StorySection({
       </div>
       <div className="min-w-0">{children}</div>
     </section>
+  );
+}
+
+function Body({ children }: { children: React.ReactNode }) {
+  return <p className="max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg">{children}</p>;
+}
+
+function SubHeading({ children }: { children: React.ReactNode }) {
+  return <h3 className="mt-10 font-display text-xl font-semibold sm:text-2xl">{children}</h3>;
+}
+
+function PullQuote({ children }: { children: React.ReactNode }) {
+  return (
+    <blockquote className="max-w-2xl border-l-2 border-highlight pl-5 text-lg font-medium leading-8 text-foreground sm:text-xl">
+      {children}
+    </blockquote>
+  );
+}
+
+function MockupPlaceholder({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex min-h-40 flex-col justify-between gap-5 rounded-lg border border-dashed border-border bg-card/50 p-6">
+      <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{label}</p>
+      <p className="max-w-xl text-sm leading-6 text-foreground/60">{children}</p>
+    </div>
+  );
+}
+
+function TransactionFlow() {
+  const groups = [
+    { actor: "Customer", steps: ["Find station", "Select fuel", "Pay", "Receive verification code"] },
+    { actor: "Station", steps: ["Verify payment", "Assign pump", "Start fueling"] },
+    { actor: "Customer", steps: ["Monitor fueling", "Confirm completion", "Digital receipt"] },
+  ];
+
+  return (
+    <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
+      {groups.map((group, groupIndex) => (
+        <div key={`${group.actor}-${groupIndex}`} className="flex flex-col bg-background p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{group.actor}</p>
+          <ol className="mt-4 flex flex-col gap-1">
+            {group.steps.map((step, stepIndex) => (
+              <li key={step} className="flex items-baseline gap-3 text-sm leading-6 text-foreground/80">
+                <span className="text-xs text-foreground/40">{groupIndex + 1}.{stepIndex + 1}</span>
+                {step}
+                {stepIndex < group.steps.length - 1 && <span aria-hidden="true" className="sr-only">↓</span>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function EcosystemDiagram() {
+  const pillars = [
+    { name: "Discovery", items: ["Find stations", "Fuel prices", "Availability"] },
+    { name: "Payment", items: ["Wallet", "Transfer", "Cash"] },
+    { name: "Rewards", items: ["BoostCircle", "Price Match", "Vouchers"] },
+  ];
+
+  return (
+    <div className="rounded-md border border-border bg-card p-6 sm:p-8">
+      <p className="text-center font-display text-2xl font-bold tracking-wide">BOOSTXPRESS</p>
+      <div className="mx-auto mt-4 h-8 w-px bg-border" aria-hidden="true" />
+      <div className="grid gap-px overflow-hidden rounded border border-border bg-border sm:grid-cols-3">
+        {pillars.map((pillar) => (
+          <div key={pillar.name} className="flex flex-col bg-background p-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{pillar.name}</p>
+            <ul className="mt-3 space-y-1 text-sm text-foreground/80">
+              {pillar.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div className="mx-auto mt-px h-8 w-px bg-border" aria-hidden="true" />
+      <div className="grid gap-px overflow-hidden rounded border border-border bg-border sm:grid-cols-2">
+        {[
+          { name: "Fueling", detail: "Live Dispensing" },
+          { name: "Transaction", detail: "Digital Receipt" },
+        ].map((row) => (
+          <div key={row.name} className="flex flex-col bg-background p-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{row.name}</p>
+            <p className="mt-3 text-sm text-foreground/80">{row.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -128,70 +222,185 @@ function BoostXpressCaseStudy() {
             <p className="mb-4 text-xs font-semibold uppercase text-highlight">Selected Work</p>
             <h1 className="font-display text-5xl font-bold leading-none sm:text-7xl lg:text-8xl">BoostXpress</h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-foreground/75 sm:text-xl">Reimagining the everyday fueling experience.</p>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground/60 sm:text-base">A digital fueling ecosystem connecting station discovery, payments, real-time dispensing, rewards, and financial services.</p>
           </div>
-          <span className="text-xs uppercase text-foreground/50">Product design case study</span>
+          <dl className="grid gap-px overflow-hidden rounded-md border border-border bg-border text-sm sm:grid-cols-2 lg:grid-cols-5">
+            {metadata.map((item) => (
+              <div key={item.label} className="bg-card p-4">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{item.label}</dt>
+                <dd className={"mt-1.5 leading-6 " + (item.value.startsWith("[") ? "text-foreground/50" : "text-foreground/85")}>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
-        <div id="overview" className="grid scroll-mt-24 gap-5 py-5 lg:scroll-mt-10 lg:grid-cols-[minmax(0,2fr)_minmax(15rem,1fr)]">
-          <section data-reveal className="min-h-56 rounded-lg border border-border bg-card p-7 sm:p-10">
-            <p className="mb-8 text-xs font-semibold uppercase text-highlight">01 / Introduction</p>
-            <h2 className="mb-5 font-display text-3xl font-semibold sm:text-4xl">Overview</h2>
-            <DraftText>BoostXpress case study overview coming soon.</DraftText>
-          </section>
-          <section data-reveal className="min-h-56 rounded-lg border border-border bg-card p-7 sm:p-10">
-            <p className="mb-8 text-xs font-semibold uppercase text-highlight">Project details</p>
-            <h2 className="mb-5 font-display text-3xl font-semibold sm:text-4xl">What I did</h2>
-            <DraftText>Role, responsibilities and collaborators to be added.</DraftText>
-          </section>
-        </div>
-
         <div className="px-1 sm:px-4">
-          <StorySection id="challenge" number="02" title="The challenge">
-            <DraftText>The problem statement and context will go here.</DraftText>
-          </StorySection>
-
-          <StorySection id="goals" number="03" title="Defining the goals">
-            <DraftText>The project goals will go here.</DraftText>
-            <div className="mt-9 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
-              {["Goal 01", "Goal 02", "Goal 03", "Goal 04"].map((goal) => (
-                <div key={goal} className="flex min-h-28 items-end bg-background p-5 text-sm text-foreground/60">{goal}</div>
-              ))}
+          <StorySection id="problem" number="01" title="The problem">
+            <div className="space-y-6">
+              <Body>Fueling was still a fragmented experience.</Body>
+              <Body>Buying fuel is simple physically, but the experience around it is not. Customers often had to search for stations manually, arrive without knowing whether their preferred fuel was available, rely on cash or disconnected payment methods, and physically monitor the pump to confirm what they were receiving.</Body>
+              <Body>For TradeGrid, the challenge went beyond the customer app. A digital payment still had to translate into a real-world station transaction — the product needed to connect these steps into one reliable experience without adding complexity for either the customer or the station attendant.</Body>
+              <div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-foreground/50">The core UX challenge</p>
+                <PullQuote>How might we make fuel purchasing feel as transparent and predictable digitally as it is physically?</PullQuote>
+              </div>
+              <TransactionFlow />
+              <Body>The challenge wasn’t simply designing a payment experience — it was connecting a digital transaction to a physical fueling operation.</Body>
+              <Body>The biggest trust gap appeared during fueling. Once a customer had paid, they still needed confidence that the correct product and quantity were being dispensed. This became an opportunity to make the physical fueling process visible through the customer’s phone.</Body>
+              <MockupPlaceholder label="Placeholder — app screens">
+                Customer app screens showing the fragmented journey today: manual station search, uncertain fuel availability, and pump-side monitoring after payment.
+              </MockupPlaceholder>
             </div>
           </StorySection>
 
-          <StorySection id="approach" number="04" title="The approach">
-            <DraftText>The thinking and approach behind the project will go here.</DraftText>
-          </StorySection>
-
-          <StorySection id="process" number="05" title="The design process">
-            <DraftText>Research, exploration and iteration will go here.</DraftText>
-            <div className="mt-9 grid gap-4 border-t border-border pt-7 sm:grid-cols-3">
-              {["Discover", "Explore", "Refine"].map((step, index) => (
-                <div key={step} className="flex items-center gap-3 text-sm text-foreground/70">
-                  <span className="text-xs text-foreground/40">0{index + 1}</span>{step}
-                </div>
-              ))}
+          <StorySection id="thinking" number="02" title="My thinking">
+            <div className="space-y-6">
+              <Body>I started with the transaction, not the interface.</Body>
+              <Body>Rather than designing the customer app as a collection of features, I mapped the complete journey from finding a station to completing a fuel purchase. This exposed a key insight: the experience had two connected users — the customer and the station attendant — and the success of one depended on the actions of the other.</Body>
+              <p className="max-w-2xl font-medium text-foreground/85">Discover → Pay → Verify → Fuel → Confirm → Complete</p>
+              <div>
+                <SubHeading>Make the invisible visible</SubHeading>
+                <Body>After payment, customers had little digital visibility into what was happening at the pump. I explored how the app could communicate the physical transaction in real time, leading to the live dispensing experience — fueling progress and a clear final quantity and transaction summary when dispensing ends.</Body>
+              </div>
+              <div>
+                <SubHeading>Reduce operational complexity</SubHeading>
+                <Body>On the station side, I designed the POS around the attendant’s actual workflow: verify payment → assign pump → start fueling → complete transaction. The customer and attendant therefore see different interfaces, but remain connected to the same transaction state.</Body>
+              </div>
+              <div className="mt-4 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
+                {[
+                  {
+                    title: "Digital payment ≠ completed transaction",
+                    body: "A payment confirmation alone wasn’t enough. The transaction still needed to move through verification, pump assignment, fueling, and completion.",
+                    decision: "Treat the entire fueling journey as one connected transaction state.",
+                  },
+                  {
+                    title: "Customers need visibility during fueling",
+                    body: "The customer shouldn’t have to repeatedly check the physical pump to understand what is happening.",
+                    decision: "Bring live dispensing feedback into the mobile experience.",
+                  },
+                  {
+                    title: "One ecosystem, two experiences",
+                    body: "Customers and attendants have different goals at the station.",
+                    decision: "Create separate customer and POS workflows connected by the same transaction lifecycle.",
+                  },
+                  {
+                    title: "Rewards shouldn’t complicate the core journey",
+                    body: "BoostCircle, Price Match, Vouchers and Boost Credit add value, but shouldn’t interfere with the primary task of buying fuel.",
+                    decision: "Keep the core fueling journey simple while layering additional value around it.",
+                  },
+                ].map((card, index) => (
+                  <div key={card.title} className="flex flex-col bg-background p-6">
+                    <span className="text-xs text-foreground/40">0{index + 1}</span>
+                    <h4 className="mt-3 text-base font-semibold leading-6">{card.title}</h4>
+                    <p className="mt-2 text-sm leading-6 text-foreground/70">{card.body}</p>
+                    <p className="mt-4 text-sm leading-6 text-foreground/85">
+                      <span className="font-semibold uppercase tracking-wide text-foreground/50">Decision — </span>
+                      {card.decision}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <MockupPlaceholder label="Placeholder — journey map">
+                Service blueprint or journey map showing the shared transaction states across the customer app and the station POS, from discovery to digital receipt.
+              </MockupPlaceholder>
             </div>
           </StorySection>
 
-          <StorySection id="solution" number="06" title="The solution">
-            <DraftText>The final experience and key design decisions will go here.</DraftText>
-            <div className="mt-10 space-y-0 border-t border-border">
-              {["Experience", "Visual language", "Key interactions"].map((part, index) => (
-                <div key={part} className="flex items-baseline gap-5 border-b border-border py-6">
-                  <span className="text-xs text-foreground/40">0{index + 1}</span>
-                  <h3 className="text-xl font-medium">{part}</h3>
-                </div>
-              ))}
+          <StorySection id="business" number="03" title="The business">
+            <div className="space-y-6">
+              <Body>From fuel transactions to a customer ecosystem.</Body>
+              <Body>TradeGrid’s opportunity wasn’t simply to digitize fuel payments. BoostXpress was designed to create an ongoing digital relationship with fuel consumers.</Body>
+              <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
+                {[
+                  { goal: "Increase digital transactions", detail: "Make fuel purchases easier to initiate and track." },
+                  { goal: "Improve station engagement", detail: "Help customers discover partner stations, products, and prices." },
+                  { goal: "Build retention", detail: "Use rebates, referrals, vouchers, Price Match, and campaigns to create reasons to return." },
+                  { goal: "Create a foundation for financial products", detail: "Support future experiences such as Boost Credit and other TradeGrid services." },
+                ].map((item) => (
+                  <div key={item.goal} className="flex min-h-32 flex-col justify-end bg-background p-5">
+                    <p className="text-sm font-semibold text-foreground">{item.goal}</p>
+                    <p className="mt-1.5 text-sm leading-6 text-foreground/70">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <SubHeading>The constraint</SubHeading>
+                <Body>The biggest constraint was that fueling remains physical. I couldn’t redesign the pump, the station attendant’s physical workflow, or the customer’s environment. The digital product therefore had to work with the existing station operation rather than attempt to replace it — and that constraint shaped the entire product architecture.</Body>
+              </div>
             </div>
           </StorySection>
 
-          <StorySection id="outcome" number="07" title="The outcome">
-            <DraftText>Results, impact and what changed will go here.</DraftText>
+          <StorySection id="solution" number="04" title="The solution">
+            <div className="space-y-8">
+              <Body>A connected digital fueling ecosystem.</Body>
+              <EcosystemDiagram />
+              <div className="grid gap-4 border-t border-border pt-8 sm:grid-cols-2">
+                {[
+                  { name: "Station discovery", detail: "Find partner stations, compare fuel prices, and check availability before arrival." },
+                  { name: "Wallet", detail: "Stored value for fueling, with transfer and top-up flows." },
+                  { name: "Payment", detail: "Pay from wallet, transfer, or cash — each mapped to one verification step." },
+                  { name: "Live dispensing", detail: "Real-time fueling progress with a final quantity and transaction summary." },
+                  { name: "Transactions", detail: "A complete, searchable history of every fuel purchase and receipt." },
+                  { name: "Vouchers", detail: "Campaign and promotional vouchers applied at the point of payment." },
+                  { name: "BoostCircle", detail: "Rebates and referral rewards layered around the core fueling journey." },
+                  { name: "Price Match", detail: "Competitive pricing signals that keep purchases inside the ecosystem." },
+                  { name: "Analytics", detail: "Station-side visibility into transactions, volumes, and attendant activity." },
+                  { name: "Boost Credit", detail: "Foundation for future financial services built on transaction history." },
+                ].map((screen, index) => (
+                  <MockupPlaceholder key={screen.name} label={`Placeholder 0${index + 1} — ${screen.name}`}>
+                    {screen.detail}
+                  </MockupPlaceholder>
+                ))}
+              </div>
+            </div>
           </StorySection>
 
-          <StorySection id="reflection" number="08" title="Reflection">
-            <DraftText>Lessons learned and closing thoughts will go here.</DraftText>
+          <StorySection id="experience" number="05" title="Key experience">
+            <div className="space-y-8">
+              <Body>Making an invisible transaction visible.</Body>
+              <MockupPlaceholder label="Hero placeholder — live dispensing">
+                The live dispensing screen at full size: real-time fueling progress on the customer’s phone, with the pump state mirrored in the app and a clear final quantity and transaction summary when dispensing ends.
+              </MockupPlaceholder>
+              <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
+                {[
+                  { step: "Before", detail: "Customer relies on the physical pump." },
+                  { step: "Design opportunity", detail: "Bring the fueling state into the app in real time." },
+                  { step: "After", detail: "Customer sees fueling progress on their phone." },
+                ].map((item) => (
+                  <div key={item.step} className="flex min-h-32 flex-col justify-end bg-background p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{item.step}</p>
+                    <p className="mt-2 text-sm leading-6 text-foreground/80">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </StorySection>
+
+          <StorySection id="ecosystem" number="06" title="The ecosystem">
+            <div className="space-y-8">
+              <Body>Every part of the product connects to the same transaction lifecycle.</Body>
+              <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-5">
+                {["Customer App", "Station POS", "Payment", "Pump", "Wallet"].map((node) => (
+                  <div key={node} className="flex min-h-24 items-end bg-background p-5 text-sm font-medium text-foreground/85">{node}</div>
+                ))}
+              </div>
+              <MockupPlaceholder label="Placeholder — system diagram">
+                A system diagram showing how the customer app, station POS, payment layer, pump, and wallet exchange transaction state in real time.
+              </MockupPlaceholder>
+            </div>
+          </StorySection>
+
+          <StorySection id="outcome" number="07" title="Outcome">
+            <div className="space-y-8">
+              <div className="rounded-md border border-border bg-card p-7 sm:p-10">
+                <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">Verified result</p>
+                <p className="mt-4 font-display text-4xl font-bold leading-none sm:text-6xl">3,000+ users</p>
+                <p className="mt-3 text-sm text-foreground/70">in the first month after launch.</p>
+              </div>
+              <MockupPlaceholder label="Placeholder — outcomes">
+                [Add other verified outcomes only — adoption, retention, or operational figures once officially approved.]
+              </MockupPlaceholder>
+            </div>
           </StorySection>
         </div>
 
