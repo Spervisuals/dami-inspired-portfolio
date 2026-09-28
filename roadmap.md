@@ -23,3 +23,4 @@
 - [x] Anchor the hero artwork to the top so the shape's top stays clear of the panel edge.
 - [x] Add clean, professional scroll-reveal animations across the sections.
 - [x] Remove the hero CTA, set Selected Work to three per row at 1440x1024, and clear the footer.
+- [x] Add a text-only BoostXpress case study layout following the reference's narrative flow, ready for supplied content.

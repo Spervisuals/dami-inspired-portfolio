@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Case studies live in individual `src/routes/projects.*.tsx` routes and use the portfolio's existing visual tokens; this keeps each project shareable without duplicating the home page.
