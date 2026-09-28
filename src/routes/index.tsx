@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -212,12 +212,17 @@ function Index() {
                   <p className="text-xs font-semibold uppercase text-foreground/60">{project.industry}</p>
                   <h3 className="mt-4 font-display text-2xl font-bold leading-tight">{project.name}</h3>
                   <p className="mt-2.5 text-sm leading-6 text-foreground">{project.summary}</p>
-                  <div className="mt-5 flex min-h-9 items-center justify-end border-t border-border pt-3.5">
-                    <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                      View project
-                    </span>
-                    <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-foreground/70 transition-transform group-hover:translate-x-1" />
-                  </div>
+                   {index === 0 ? (
+                     <Link to="/projects/boostxpress" aria-label="View BoostXpress case study" className="mt-5 flex min-h-9 items-center justify-end border-t border-border pt-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                       <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">View project</span>
+                       <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-foreground/70 transition-transform group-hover:translate-x-1" />
+                     </Link>
+                   ) : (
+                     <div className="mt-5 flex min-h-9 items-center justify-end border-t border-border pt-3.5">
+                       <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">View project</span>
+                       <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-foreground/70 transition-transform group-hover:translate-x-1" />
+                     </div>
+                   )}
                 </div>
               </article>
             ))}
