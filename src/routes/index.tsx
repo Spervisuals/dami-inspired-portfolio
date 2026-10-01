@@ -48,36 +48,42 @@ const projects = [
     summary: "Reimagining the everyday fueling experience.",
     industry: "Energy / FinTech",
     image: boostxpressImage,
+    to: "/projects/boostxpress" as const,
   },
   {
     name: "MVAA Learner's Permit System",
     summary: "Digitising a complex government service end to end.",
     industry: "Government / Public Services",
     image: mvaaImage,
+    to: "/projects/mvaa" as const,
   },
   {
     name: "Citi X",
     summary: "Making visa applications easier to submit, track and manage.",
     industry: "Travel / Government",
     image: citiXImage,
+    to: "/projects/citi-x" as const,
   },
   {
     name: "TradeGrid Mobile",
     summary: "Energy trading, clear and on the move.",
     industry: "Energy / B2B",
     image: tradeGridImage,
+    to: "/projects/tradegrid-mobile" as const,
   },
   {
     name: "Terminal One",
     summary: "Turning complex energy trading into a clearer workflow.",
     industry: "Energy / B2B",
     image: terminalOneImage,
+    to: "/projects/terminal-one" as const,
   },
   {
     name: "PMLConcepts",
     summary: "Brand and product concept exploration.",
     industry: "Brand / Product",
     image: pmlConceptsImage,
+    to: "/projects/pmlconcepts" as const,
   },
 ];
 
@@ -135,8 +141,8 @@ function Index() {
               onClick={() => setMenuOpen(false)}
               className={`block rounded-md border-l-2 px-3 py-2.5 text-xs transition-colors ${
                 index === 0
-                  ? "border-foreground/70 bg-sidebar-accent text-foreground"
-                  : "border-transparent text-foreground hover:bg-sidebar-accent"
+                  ? "border-highlight bg-highlight-muted text-foreground"
+                  : "border-transparent text-foreground hover:border-highlight/60 hover:bg-highlight-muted"
               }`}
             >
               {item.label}
@@ -195,11 +201,13 @@ function Index() {
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <article
+              <Link
                 key={project.name}
+                to={project.to}
+                aria-label={`View ${project.name} case study`}
                 data-reveal
                 style={{ transitionDelay: `${(index % 3) * 90}ms` }}
-                className="group overflow-hidden rounded-lg border border-border bg-card"
+                className="group block overflow-hidden rounded-lg border border-border bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <div className="aspect-[1440/1024] overflow-hidden border-b border-border bg-secondary">
                   <img
@@ -212,19 +220,12 @@ function Index() {
                   <p className="text-xs font-semibold uppercase text-foreground/60">{project.industry}</p>
                   <h3 className="mt-4 font-display text-2xl font-bold leading-tight">{project.name}</h3>
                   <p className="mt-2.5 text-sm leading-6 text-foreground">{project.summary}</p>
-                   {index === 0 ? (
-                     <Link to="/projects/boostxpress" aria-label="View BoostXpress case study" className="mt-5 flex min-h-9 items-center justify-end border-t border-border pt-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                       <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">View project</span>
-                       <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-foreground/70 transition-transform group-hover:translate-x-1" />
-                     </Link>
-                   ) : (
-                     <div className="mt-5 flex min-h-9 items-center justify-end border-t border-border pt-3.5">
-                       <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">View project</span>
-                       <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-foreground/70 transition-transform group-hover:translate-x-1" />
-                     </div>
-                   )}
+                  <div className="mt-5 flex min-h-9 items-center justify-end border-t border-border pt-3.5">
+                    <span className="mr-3 translate-x-2 text-xs font-semibold uppercase text-foreground/70 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100">View project</span>
+                    <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-foreground/70 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+                  </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </section>
