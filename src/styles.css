@@ -64,6 +64,7 @@
   --color-hero-muted: var(--hero-muted);
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
+  --color-highlight-muted: var(--highlight-muted);
 }
 
 :root {
@@ -104,6 +105,7 @@
   --hero-overlay: linear-gradient(0deg, oklch(0.08 0 0 / 0.92) 0%, oklch(0.08 0 0 / 0.55) 36%, oklch(0.08 0 0 / 0.14) 66%, transparent 100%), linear-gradient(90deg, oklch(0.08 0 0 / 0.74) 0%, oklch(0.08 0 0 / 0.22) 58%, transparent 100%);
   --highlight: oklch(0.70 0.18 52);
   --highlight-foreground: oklch(0.115 0 0);
+  --highlight-muted: oklch(0.70 0.18 52 / 0.13);
   --contact-background: oklch(0.215 0 0);
   --contact-line: oklch(0.97 0 0 / 0.10);
   --contact-shape: oklch(0.97 0 0 / 0.06);
@@ -145,6 +147,7 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
   --highlight: oklch(0.70 0.18 52);
   --highlight-foreground: oklch(0.115 0 0);
+  --highlight-muted: oklch(0.70 0.18 52 / 0.13);
 }
 
 @layer base {
