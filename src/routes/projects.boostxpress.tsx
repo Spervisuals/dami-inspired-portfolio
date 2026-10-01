@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/projects/boostxpress")({
@@ -28,6 +29,8 @@ const chapters = [
   { id: "ecosystem", title: "The ecosystem" },
   { id: "outcome", title: "Outcome" },
 ];
+
+const chapterIds = chapters.map((chapter) => chapter.id);
 
 const metadata = [
   { label: "Role", value: "Product Designer" },
@@ -152,6 +155,7 @@ function EcosystemDiagram() {
 
 function BoostXpressCaseStudy() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const activeSection = useActiveSection(chapterIds);
   useScrollReveal();
 
   return (
@@ -195,7 +199,17 @@ function BoostXpressCaseStudy() {
         <p className="px-3 text-[11px] font-semibold uppercase text-foreground/50">In this case study</p>
         <nav aria-label="Case study sections" className="mt-3 space-y-0.5">
           {chapters.map((chapter) => (
-            <a key={chapter.id} href={`#${chapter.id}`} onClick={() => setMenuOpen(false)} className="block rounded-md border-l-2 border-transparent px-3 py-2 text-xs text-foreground/75 transition-colors hover:border-foreground/50 hover:bg-sidebar-accent hover:text-foreground">
+            <a
+              key={chapter.id}
+              href={`#${chapter.id}`}
+              aria-current={activeSection === chapter.id ? "location" : undefined}
+              onClick={() => setMenuOpen(false)}
+              className={`block rounded-md border-l-2 px-3 py-2 text-xs transition-colors ${
+                activeSection === chapter.id
+                  ? "border-highlight bg-highlight-muted text-foreground"
+                  : "border-transparent text-foreground/75 hover:border-highlight/60 hover:bg-highlight-muted hover:text-foreground"
+              }`}
+            >
               {chapter.title}
             </a>
           ))}
