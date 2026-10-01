@@ -11,6 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsBoostxpressRouteImport } from './routes/projects.boostxpress'
+import { Route as ProjectsCitiXRouteImport } from './routes/projects.citi-x'
+import { Route as ProjectsMvaaRouteImport } from './routes/projects.mvaa'
+import { Route as ProjectsPmlconceptsRouteImport } from './routes/projects.pmlconcepts'
+import { Route as ProjectsTerminalOneRouteImport } from './routes/projects.terminal-one'
+import { Route as ProjectsTradegridMobileRouteImport } from './routes/projects.tradegrid-mobile'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +27,98 @@ const ProjectsBoostxpressRoute = ProjectsBoostxpressRouteImport.update({
   path: '/projects/boostxpress',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsCitiXRoute = ProjectsCitiXRouteImport.update({
+  id: '/projects/citi-x',
+  path: '/projects/citi-x',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsMvaaRoute = ProjectsMvaaRouteImport.update({
+  id: '/projects/mvaa',
+  path: '/projects/mvaa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsPmlconceptsRoute = ProjectsPmlconceptsRouteImport.update({
+  id: '/projects/pmlconcepts',
+  path: '/projects/pmlconcepts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsTerminalOneRoute = ProjectsTerminalOneRouteImport.update({
+  id: '/projects/terminal-one',
+  path: '/projects/terminal-one',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsTradegridMobileRoute = ProjectsTradegridMobileRouteImport.update({
+  id: '/projects/tradegrid-mobile',
+  path: '/projects/tradegrid-mobile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/projects/boostxpress': typeof ProjectsBoostxpressRoute
+  '/projects/citi-x': typeof ProjectsCitiXRoute
+  '/projects/mvaa': typeof ProjectsMvaaRoute
+  '/projects/pmlconcepts': typeof ProjectsPmlconceptsRoute
+  '/projects/terminal-one': typeof ProjectsTerminalOneRoute
+  '/projects/tradegrid-mobile': typeof ProjectsTradegridMobileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/projects/boostxpress': typeof ProjectsBoostxpressRoute
+  '/projects/citi-x': typeof ProjectsCitiXRoute
+  '/projects/mvaa': typeof ProjectsMvaaRoute
+  '/projects/pmlconcepts': typeof ProjectsPmlconceptsRoute
+  '/projects/terminal-one': typeof ProjectsTerminalOneRoute
+  '/projects/tradegrid-mobile': typeof ProjectsTradegridMobileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/projects/boostxpress': typeof ProjectsBoostxpressRoute
+  '/projects/citi-x': typeof ProjectsCitiXRoute
+  '/projects/mvaa': typeof ProjectsMvaaRoute
+  '/projects/pmlconcepts': typeof ProjectsPmlconceptsRoute
+  '/projects/terminal-one': typeof ProjectsTerminalOneRoute
+  '/projects/tradegrid-mobile': typeof ProjectsTradegridMobileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects/boostxpress'
+  fullPaths:
+    | '/'
+    | '/projects/boostxpress'
+    | '/projects/citi-x'
+    | '/projects/mvaa'
+    | '/projects/pmlconcepts'
+    | '/projects/terminal-one'
+    | '/projects/tradegrid-mobile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects/boostxpress'
-  id: '__root__' | '/' | '/projects/boostxpress'
+  to:
+    | '/'
+    | '/projects/boostxpress'
+    | '/projects/citi-x'
+    | '/projects/mvaa'
+    | '/projects/pmlconcepts'
+    | '/projects/terminal-one'
+    | '/projects/tradegrid-mobile'
+  id:
+    | '__root__'
+    | '/'
+    | '/projects/boostxpress'
+    | '/projects/citi-x'
+    | '/projects/mvaa'
+    | '/projects/pmlconcepts'
+    | '/projects/terminal-one'
+    | '/projects/tradegrid-mobile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProjectsBoostxpressRoute: typeof ProjectsBoostxpressRoute
+  ProjectsCitiXRoute: typeof ProjectsCitiXRoute
+  ProjectsMvaaRoute: typeof ProjectsMvaaRoute
+  ProjectsPmlconceptsRoute: typeof ProjectsPmlconceptsRoute
+  ProjectsTerminalOneRoute: typeof ProjectsTerminalOneRoute
+  ProjectsTradegridMobileRoute: typeof ProjectsTradegridMobileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +137,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsBoostxpressRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/citi-x': {
+      id: '/projects/citi-x'
+      path: '/projects/citi-x'
+      fullPath: '/projects/citi-x'
+      preLoaderRoute: typeof ProjectsCitiXRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/mvaa': {
+      id: '/projects/mvaa'
+      path: '/projects/mvaa'
+      fullPath: '/projects/mvaa'
+      preLoaderRoute: typeof ProjectsMvaaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/pmlconcepts': {
+      id: '/projects/pmlconcepts'
+      path: '/projects/pmlconcepts'
+      fullPath: '/projects/pmlconcepts'
+      preLoaderRoute: typeof ProjectsPmlconceptsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/terminal-one': {
+      id: '/projects/terminal-one'
+      path: '/projects/terminal-one'
+      fullPath: '/projects/terminal-one'
+      preLoaderRoute: typeof ProjectsTerminalOneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/tradegrid-mobile': {
+      id: '/projects/tradegrid-mobile'
+      path: '/projects/tradegrid-mobile'
+      fullPath: '/projects/tradegrid-mobile'
+      preLoaderRoute: typeof ProjectsTradegridMobileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProjectsBoostxpressRoute: ProjectsBoostxpressRoute,
+  ProjectsCitiXRoute: ProjectsCitiXRoute,
+  ProjectsMvaaRoute: ProjectsMvaaRoute,
+  ProjectsPmlconceptsRoute: ProjectsPmlconceptsRoute,
+  ProjectsTerminalOneRoute: ProjectsTerminalOneRoute,
+  ProjectsTradegridMobileRoute: ProjectsTradegridMobileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
