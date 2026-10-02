@@ -42,21 +42,16 @@ const metadata = [
 
 function StorySection({
   id,
-  number,
   title,
   children,
 }: {
   id: string;
-  number: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
     <section id={id} data-reveal className="grid scroll-mt-24 gap-6 border-t border-border py-14 sm:py-20 lg:scroll-mt-10 lg:grid-cols-[minmax(10rem,0.42fr)_minmax(0,1fr)] lg:gap-14">
-      <div className="flex items-start gap-4">
-        <span className="pt-1 text-xs text-foreground/50">{number}</span>
-        <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">{title}</h2>
-      </div>
+      <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">{title}</h2>
       <div className="min-w-0">{children}</div>
     </section>
   );
@@ -228,12 +223,8 @@ function BoostXpressCaseStudy() {
 
       <div className="lg:ml-[15.525rem]">
         <section className="flex min-h-[25rem] flex-col justify-between rounded-lg border border-border bg-card p-7 sm:min-h-[30rem] sm:p-12 lg:p-16" data-reveal>
-          <div className="flex items-center justify-between gap-4 text-xs uppercase text-foreground/60">
-            <span>Case study / 01</span>
-            <span>Energy / FinTech</span>
-          </div>
+          <p className="text-xs font-semibold uppercase text-highlight">Energy / FinTech</p>
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase text-highlight">Selected Work</p>
             <h1 className="font-display text-5xl font-bold leading-none sm:text-7xl lg:text-8xl">BoostXpress</h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-foreground/75 sm:text-xl">Reimagining the everyday fueling experience.</p>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground/60 sm:text-base">A digital fueling ecosystem connecting station discovery, payments, real-time dispensing, rewards, and financial services.</p>
@@ -249,7 +240,7 @@ function BoostXpressCaseStudy() {
         </section>
 
         <div className="px-1 sm:px-4">
-          <StorySection id="problem" number="01" title="The problem">
+          <StorySection id="problem" title="The problem">
             <div className="space-y-6">
               <Body>Fueling was still a fragmented experience.</Body>
               <Body>Buying fuel is simple physically, but the experience around it is not. Customers often had to search for stations manually, arrive without knowing whether their preferred fuel was available, rely on cash or disconnected payment methods, and physically monitor the pump to confirm what they were receiving.</Body>
@@ -267,7 +258,7 @@ function BoostXpressCaseStudy() {
             </div>
           </StorySection>
 
-          <StorySection id="thinking" number="02" title="My thinking">
+          <StorySection id="thinking" title="My thinking">
             <div className="space-y-6">
               <Body>I started with the transaction, not the interface.</Body>
               <Body>Rather than designing the customer app as a collection of features, I mapped the complete journey from finding a station to completing a fuel purchase. This exposed a key insight: the experience had two connected users — the customer and the station attendant — and the success of one depended on the actions of the other.</Body>
@@ -302,10 +293,9 @@ function BoostXpressCaseStudy() {
                     body: "BoostCircle, Price Match, Vouchers and Boost Credit add value, but shouldn’t interfere with the primary task of buying fuel.",
                     decision: "Keep the core fueling journey simple while layering additional value around it.",
                   },
-                ].map((card, index) => (
+                ].map((card) => (
                   <div key={card.title} className="flex flex-col bg-background p-6">
-                    <span className="text-xs text-foreground/40">0{index + 1}</span>
-                    <h4 className="mt-3 text-base font-semibold leading-6">{card.title}</h4>
+                    <h4 className="text-base font-semibold leading-6">{card.title}</h4>
                     <p className="mt-2 text-sm leading-6 text-foreground/70">{card.body}</p>
                     <p className="mt-4 text-sm leading-6 text-foreground/85">
                       <span className="font-semibold uppercase tracking-wide text-foreground/50">Decision — </span>
@@ -320,7 +310,7 @@ function BoostXpressCaseStudy() {
             </div>
           </StorySection>
 
-          <StorySection id="business" number="03" title="The business">
+          <StorySection id="business" title="The business">
             <div className="space-y-6">
               <Body>From fuel transactions to a customer ecosystem.</Body>
               <Body>TradeGrid’s opportunity wasn’t simply to digitize fuel payments. BoostXpress was designed to create an ongoing digital relationship with fuel consumers.</Body>
@@ -344,7 +334,7 @@ function BoostXpressCaseStudy() {
             </div>
           </StorySection>
 
-          <StorySection id="solution" number="04" title="The solution">
+          <StorySection id="solution" title="The solution">
             <div className="space-y-8">
               <Body>A connected digital fueling ecosystem.</Body>
               <EcosystemDiagram />
@@ -360,8 +350,8 @@ function BoostXpressCaseStudy() {
                   { name: "Price Match", detail: "Competitive pricing signals that keep purchases inside the ecosystem." },
                   { name: "Analytics", detail: "Station-side visibility into transactions, volumes, and attendant activity." },
                   { name: "Boost Credit", detail: "Foundation for future financial services built on transaction history." },
-                ].map((screen, index) => (
-                  <MockupPlaceholder key={screen.name} label={`Placeholder 0${index + 1} — ${screen.name}`}>
+                ].map((screen) => (
+                  <MockupPlaceholder key={screen.name} label={`Placeholder — ${screen.name}`}>
                     {screen.detail}
                   </MockupPlaceholder>
                 ))}
@@ -369,7 +359,7 @@ function BoostXpressCaseStudy() {
             </div>
           </StorySection>
 
-          <StorySection id="experience" number="05" title="Key experience">
+          <StorySection id="experience" title="Key experience">
             <div className="space-y-8">
               <Body>Making an invisible transaction visible.</Body>
               <MockupPlaceholder label="Hero placeholder — live dispensing">
@@ -390,7 +380,7 @@ function BoostXpressCaseStudy() {
             </div>
           </StorySection>
 
-          <StorySection id="ecosystem" number="06" title="The ecosystem">
+          <StorySection id="ecosystem" title="The ecosystem">
             <div className="space-y-8">
               <Body>Every part of the product connects to the same transaction lifecycle.</Body>
               <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-5">
@@ -404,7 +394,7 @@ function BoostXpressCaseStudy() {
             </div>
           </StorySection>
 
-          <StorySection id="outcome" number="07" title="Outcome">
+          <StorySection id="outcome" title="Outcome">
             <div className="space-y-8">
               <div className="rounded-md border border-border bg-card p-7 sm:p-10">
                 <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">Verified result</p>

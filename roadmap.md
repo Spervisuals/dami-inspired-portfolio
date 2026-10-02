@@ -26,3 +26,4 @@
 - [x] Add a text-only BoostXpress case study layout following the reference's narrative flow, ready for supplied content.
 - [x] Add orange active menu states and scroll-aware case study navigation.
 - [x] Make every selected-work card open its project page.
+- [x] Build the Citi X case study and remove visible numbering from both completed case studies.
