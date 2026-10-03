@@ -27,3 +27,4 @@
 - [x] Add orange active menu states and scroll-aware case study navigation.
 - [x] Make every selected-work card open its project page.
 - [x] Build the Citi X case study and remove visible numbering from both completed case studies.
+- [x] Refine the BoostXpress hero, project details, business goals, and ecosystem diagrams, and add portrait sidebars to both completed case studies.
