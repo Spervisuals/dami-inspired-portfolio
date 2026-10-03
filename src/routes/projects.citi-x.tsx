@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import portraitImage from "@/assets/tobiloba-profile-2026.png";
 import { Button } from "@/components/ui/button";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -9,9 +10,9 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 export const Route = createFileRoute("/projects/citi-x")({
   head: () => ({
     meta: [
-      { title: "Citi X Case Study — Tobiloba Ademowo" },
+      { title: "Citi X Case Study, Tobiloba Ademowo" },
       { name: "description", content: "Designing an end-to-end visa application and travel services platform." },
-      { property: "og:title", content: "Citi X Case Study — Tobiloba Ademowo" },
+      { property: "og:title", content: "Citi X Case Study, Tobiloba Ademowo" },
       { property: "og:description", content: "A connected visa-processing ecosystem for travellers, agents, corporates, and administrators." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -93,7 +94,7 @@ function CitiXCaseStudy() {
 
       <aside data-open={menuOpen} className="fixed inset-y-3 left-3 z-40 flex w-[14.125rem] -translate-x-[120%] flex-col overflow-y-auto rounded-lg border border-border bg-sidebar p-3 shadow-2xl transition-transform duration-300 data-[open=true]:translate-x-0 sm:inset-y-5 sm:left-5 lg:inset-y-6 lg:left-6 lg:translate-x-0">
         <Link to="/" className="flex items-center gap-2.5 px-1 py-8" onClick={() => setMenuOpen(false)}>
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-border bg-secondary text-sm font-semibold">TA</span>
+          <img src={portraitImage} alt="Tobiloba Ademowo" className="size-11 shrink-0 rounded-xl border border-border object-cover object-[50%_26%]" />
           <span className="text-sm font-medium">Tobiloba Ademowo</span>
         </Link>
         <nav aria-label="Portfolio navigation" className="space-y-0.5">
@@ -122,10 +123,10 @@ function CitiXCaseStudy() {
           <div>
             <h1 className="font-display text-5xl font-bold leading-none sm:text-7xl lg:text-8xl">Citi X</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/75 sm:text-xl">Designing an end-to-end visa application and travel services platform.</p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground/60 sm:text-base">A connected ecosystem for travellers, visa agents, corporate users, and internal administrators — from registration and submission to review, payment, processing, and decision.</p>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground/60 sm:text-base">A connected ecosystem for travellers, visa agents, corporate users, and internal administrators, from registration and submission to review, payment, processing, and decision.</p>
           </div>
-          <dl className="grid gap-px overflow-hidden rounded-md border border-border bg-border text-sm sm:grid-cols-2 lg:grid-cols-5">
-            {metadata.map((item) => <div key={item.label} className="bg-card p-4"><dt className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{item.label}</dt><dd className={`mt-1.5 leading-6 ${item.value.startsWith("[") ? "text-foreground/50" : "text-foreground/85"}`}>{item.value}</dd></div>)}
+          <dl className="grid gap-x-8 gap-y-5 text-sm sm:grid-cols-2 lg:grid-cols-5">
+            {metadata.map((item) => <div key={item.label}><dt className="text-xs font-semibold uppercase text-foreground/50">{item.label}</dt><dd className={`mt-1.5 leading-6 ${item.value.startsWith("[") ? "text-foreground/50" : "text-foreground/85"}`}>{item.value}</dd></div>)}
           </dl>
         </section>
 
@@ -145,7 +146,7 @@ function CitiXCaseStudy() {
               </div>
               <PullQuote>How might we create one connected visa-processing ecosystem that makes the journey understandable for travellers, manageable for agents and corporates, and operationally controllable for Citi X?</PullQuote>
               <Body>The challenge shifted from “How do we design a visa application?” to “How do we design the entire system around the visa application?”</Body>
-              <MockupPlaceholder label="Placeholder — stakeholder journey">A four-part journey map showing the connected needs of travellers, agents, corporate teams, and Citi X administrators.</MockupPlaceholder>
+              <MockupPlaceholder label="Placeholder, stakeholder journey">A four-part journey map showing the connected needs of travellers, agents, corporate teams, and Citi X administrators.</MockupPlaceholder>
             </div>
           </StorySection>
 
@@ -171,11 +172,11 @@ function CitiXCaseStudy() {
 
               <div><SubHeading>Design status as a journey, not just a label</SubHeading><Body>A simple Pending, Processing, Approved, or Declined badge provides little context. A progressive tracker gives users a mental model of where they are and what comes next, reducing uncertainty throughout the process.</Body></div>
               <Flow items={["Application submitted", "Documents under review", "Embassy processing", "Decision"]} />
-              <MockupPlaceholder label="Placeholder — application progress">A detailed application page with a progressive status tracker, current-stage explanation, expected processing window, and the next required action.</MockupPlaceholder>
+              <MockupPlaceholder label="Placeholder, application progress">A detailed application page with a progressive status tracker, current-stage explanation, expected processing window, and the next required action.</MockupPlaceholder>
 
               <div><SubHeading>Separate application review from document review</SubHeading><Body>An application can exist while individual documents are pending review, approved, or declined. Giving documents their own review interaction makes the workflow actionable and keeps the reason for any decline attached to the record.</Body></div>
               <Flow items={["Review", "Preview document", "Approve or decline", "Provide reason"]} />
-              <MockupPlaceholder label="Placeholder — document review">The administrator’s document preview with approve and decline controls, including the reason field shown when a document is declined.</MockupPlaceholder>
+              <MockupPlaceholder label="Placeholder, document review">The administrator’s document preview with approve and decline controls, including the reason field shown when a document is declined.</MockupPlaceholder>
 
               <div><SubHeading>Design the admin dashboard around decisions</SubHeading><Body>Instead of filling the dashboard with generic charts, I structured analytics around actual platform activity and the questions administrators needed to answer quickly.</Body></div>
               <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
@@ -186,7 +187,7 @@ function CitiXCaseStudy() {
                   ["Operational analytics", "Applications awaiting review, document activity, processing, and system issues."],
                 ].map(([title, text]) => <div key={title} className="bg-background p-5"><h4 className="font-semibold">{title}</h4><p className="mt-2 text-sm leading-6 text-foreground/70">{text}</p></div>)}
               </div>
-              <MockupPlaceholder label="Placeholder — admin overview">An operations dashboard combining application, user, financial, and review activity with clear attention states rather than decorative charts.</MockupPlaceholder>
+              <MockupPlaceholder label="Placeholder, admin overview">An operations dashboard combining application, user, financial, and review activity with clear attention states rather than decorative charts.</MockupPlaceholder>
 
               <div><SubHeading>Keep service categories consistent</SubHeading><Body>Tourism and Business Visa, Student Visa, Work and Relocation Visa, and Litigation Services stay consistent across forms, dashboards, analytics, and tables to reduce cognitive load.</Body></div>
 
@@ -214,7 +215,7 @@ function CitiXCaseStudy() {
           <StorySection id="business" title="The business">
             <div className="space-y-8">
               <Body>Citi X needed more than a visa application form.</Body>
-              <Body>The business was building a platform for individual travellers, visa agents, and corporate customers — supported by applications, document processing, payments, commissions, wallets, user management, reporting, and analytics.</Body>
+              <Body>The business was building a platform for individual travellers, visa agents, and corporate customers, supported by applications, document processing, payments, commissions, wallets, user management, reporting, and analytics.</Body>
               <PullQuote>The product needed to support both customer acquisition and operational scalability.</PullQuote>
               <div><SubHeading>A platform model, not a single-user product</SubHeading><Body>The tiered direction required a flexible architecture that could introduce differentiated capabilities without rebuilding the core experience for every user type.</Body></div>
               <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
@@ -226,7 +227,7 @@ function CitiXCaseStudy() {
               </div>
               <div><SubHeading>Support revenue without compromising the experience</SubHeading><Body>Payment was not treated as an isolated checkout screen. It remained connected to the application lifecycle, so users could understand what they were paying for, why they were paying it, and what happens next.</Body></div>
               <Flow items={["Application", "Fees", "Payment", "Transaction", "Receipt", "Application status"]} />
-              <MockupPlaceholder label="Placeholder — payment lifecycle">Application fees, payment confirmation, receipt, and the resulting application-status update shown as one connected experience.</MockupPlaceholder>
+              <MockupPlaceholder label="Placeholder, payment lifecycle">Application fees, payment confirmation, receipt, and the resulting application-status update shown as one connected experience.</MockupPlaceholder>
               <div><SubHeading>Build operational scalability into the product</SubHeading><Body>Structured application management, document review, status updates, transaction records, user management, analytics, and activity history provide the operational foundation needed to manage a growing platform.</Body></div>
               <div><SubHeading>The constraint</SubHeading><Body>There were many actors, workflows, and financial concepts, but the interface still needed to feel simple. The central question became: how do we expose the right information at the right moment without making the platform feel complicated?</Body></div>
             </div>
@@ -243,7 +244,7 @@ function CitiXCaseStudy() {
                   ["Administrator", "What needs attention? What is happening across the platform? Where are the operational or financial issues?"],
                 ].map(([title, text]) => <div key={title} className="min-h-40 bg-background p-5"><h3 className="font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-foreground/70">{text}</p></div>)}
               </div>
-              <MockupPlaceholder label="Placeholder — connected platform">A final system map showing how applications connect travellers, agents, corporate teams, administrators, documents, payments, wallets, and status updates.</MockupPlaceholder>
+              <MockupPlaceholder label="Placeholder, connected platform">A final system map showing how applications connect travellers, agents, corporate teams, administrators, documents, payments, wallets, and status updates.</MockupPlaceholder>
               <div className="rounded-md border border-border bg-card p-7 sm:p-10">
                 <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">Outcome</p>
                 <p className="mt-4 max-w-2xl text-lg leading-8 text-foreground/75">Verified post-launch metrics will be added when available. No performance or conversion figures have been assumed.</p>
