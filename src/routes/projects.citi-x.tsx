@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import citiXApplyImage from "@/assets/citi-x-apply.jpg";
+import citiXDashboardImage from "@/assets/citi-x-dashboard.jpg";
 import citiXDocsImage from "@/assets/citi-x-docs.jpg";
 import citiXImage from "@/assets/citi-x.jpg";
 import portraitImage from "@/assets/tobiloba-profile-2026.png";
@@ -201,7 +202,9 @@ function CitiXCaseStudy() {
                   ["Operational analytics", "Applications awaiting review, document activity, processing, and system issues."],
                 ].map(([title, text]) => <div key={title} className="bg-background p-5"><h4 className="font-semibold">{title}</h4><p className="mt-2 text-sm leading-6 text-foreground/70">{text}</p></div>)}
               </div>
-              <MockupPlaceholder label="Placeholder, admin overview">An operations dashboard combining application, user, financial, and review activity with clear attention states rather than decorative charts.</MockupPlaceholder>
+              <figure className="overflow-hidden rounded-lg bg-card">
+                <img src={citiXDashboardImage} alt="Citi X administrator dashboard showing total users, applications, payments, earnings, pending approvals, and support tickets above a revenue report and applications by visa type chart" width={1920} height={1200} className="h-auto w-full" />
+              </figure>
 
               <div><SubHeading>Keep service categories consistent</SubHeading><Body>Tourism and Business Visa, Student Visa, Work and Relocation Visa, and Litigation Services stay consistent across forms, dashboards, analytics, and tables to reduce cognitive load.</Body></div>
 
