@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import citiXApplyImage from "@/assets/citi-x-apply.jpg";
+import citiXDocsImage from "@/assets/citi-x-docs.jpg";
 import citiXImage from "@/assets/citi-x.jpg";
 import portraitImage from "@/assets/tobiloba-profile-2026.png";
 import { Button } from "@/components/ui/button";
@@ -180,11 +182,15 @@ function CitiXCaseStudy() {
 
               <div><SubHeading>Design status as a journey, not just a label</SubHeading><Body>A simple Pending, Processing, Approved, or Declined badge provides little context. A progressive tracker gives users a mental model of where they are and what comes next, reducing uncertainty throughout the process.</Body></div>
               <Flow items={["Application submitted", "Documents under review", "Embassy processing", "Decision"]} />
-              <MockupPlaceholder label="Placeholder, application progress">A detailed application page with a progressive status tracker, current-stage explanation, expected processing window, and the next required action.</MockupPlaceholder>
+              <figure className="overflow-hidden rounded-lg bg-card">
+                <img src={citiXApplyImage} alt="Citi X new visa application form on step three of seven with a vertical progress tracker and applicant information fields" width={1920} height={1198} className="h-auto w-full" />
+              </figure>
 
               <div><SubHeading>Separate application review from document review</SubHeading><Body>An application can exist while individual documents are pending review, approved, or declined. Giving documents their own review interaction makes the workflow actionable and keeps the reason for any decline attached to the record.</Body></div>
               <Flow items={["Review", "Preview document", "Approve or decline", "Provide reason"]} />
-              <MockupPlaceholder label="Placeholder, document review">The administrator’s document preview with approve and decline controls, including the reason field shown when a document is declined.</MockupPlaceholder>
+              <figure className="overflow-hidden rounded-lg bg-card">
+                <img src={citiXDocsImage} alt="Citi X administrator application view showing applicant details, visa details, uploaded documents for review, and a four-step progress tracker" width={1728} height={1080} className="h-auto w-full" />
+              </figure>
 
               <div><SubHeading>Design the admin dashboard around decisions</SubHeading><Body>Instead of filling the dashboard with generic charts, I structured analytics around actual platform activity and the questions administrators needed to answer quickly.</Body></div>
               <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
