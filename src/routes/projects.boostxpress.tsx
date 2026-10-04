@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowLeft, ArrowRight, ChartNoAxesCombined, CircleDollarSign, Fuel, MapPinned, Menu, RefreshCw, X } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ChartNoAxesCombined, CircleDollarSign, MapPinned, Menu, RefreshCw, X } from "lucide-react";
 import { useState } from "react";
 
+import boostxpressBuyFuelImage from "@/assets/boostxpress-buy-fuel.jpg";
 import boostxpressImage from "@/assets/boostxpress.jpg";
+import boostxpressSolutionImage from "@/assets/boostxpress-solution.svg";
 import portraitImage from "@/assets/tobiloba-profile-2026.png";
 import { Button } from "@/components/ui/button";
 import { useActiveSection } from "@/hooks/use-active-section";
@@ -111,49 +113,6 @@ function TransactionFlow() {
   );
 }
 
-function EcosystemDiagram() {
-  const pillars = [
-    { name: "Discovery", items: ["Find stations", "Fuel prices", "Availability"] },
-    { name: "Payment", items: ["Wallet", "Transfer", "Cash"] },
-    { name: "Rewards", items: ["BoostCircle", "Price Match", "Vouchers"] },
-  ];
-
-  return (
-    <div className="rounded-lg bg-card p-6 sm:p-10">
-      <div className="mx-auto flex size-32 flex-col items-center justify-center rounded-full bg-highlight-muted text-center ring-1 ring-highlight/40">
-        <Fuel aria-hidden="true" className="mb-2 size-6 text-highlight" />
-        <p className="font-display text-sm font-bold uppercase">BoostXpress</p>
-        <p className="mt-1 text-[11px] text-foreground/60">One transaction</p>
-      </div>
-      <ArrowDown aria-hidden="true" className="mx-auto my-5 size-5 text-foreground/40" />
-      <div className="grid gap-3 sm:grid-cols-3">
-        {pillars.map((pillar) => (
-          <div key={pillar.name} className="flex min-h-36 flex-col rounded-md bg-background p-5 ring-1 ring-border">
-            <p className="text-xs font-semibold uppercase text-foreground/60">{pillar.name}</p>
-            <ul className="mt-auto space-y-1 pt-4 text-sm text-foreground/80">
-              {pillar.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <ArrowDown aria-hidden="true" className="mx-auto my-5 size-5 text-foreground/40" />
-      <div className="grid gap-3 sm:grid-cols-2">
-        {[
-          { name: "Fueling", detail: "Live Dispensing" },
-          { name: "Transaction", detail: "Digital Receipt" },
-        ].map((row) => (
-          <div key={row.name} className="flex min-h-24 flex-col justify-center rounded-md bg-background p-5 text-center ring-1 ring-border">
-            <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">{row.name}</p>
-            <p className="mt-3 text-sm text-foreground/80">{row.detail}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function BoostXpressCaseStudy() {
   const [menuOpen, setMenuOpen] = useState(false);
   const activeSection = useActiveSection(chapterIds);
@@ -245,7 +204,7 @@ function BoostXpressCaseStudy() {
               ))}
             </dl>
           </div>
-          <div className="self-center bg-secondary lg:mr-8">
+          <div className="self-center overflow-hidden rounded-lg bg-secondary lg:mr-8">
             <div className="aspect-[1440/1024] overflow-hidden">
               <img src={boostxpressImage} alt="BoostXpress mobile application mockups" width={1904} height={1502} className="h-full w-full object-cover" />
             </div>
@@ -265,9 +224,9 @@ function BoostXpressCaseStudy() {
               <TransactionFlow />
               <Body>The challenge wasn’t simply designing a payment experience, it was connecting a digital transaction to a physical fueling operation.</Body>
               <Body>The biggest trust gap appeared during fueling. Once a customer had paid, they still needed confidence that the correct product and quantity were being dispensed. This became an opportunity to make the physical fueling process visible through the customer’s phone.</Body>
-              <MockupPlaceholder label="Placeholder, app screens">
-                Customer app screens showing the fragmented journey today: manual station search, uncertain fuel availability, and pump-side monitoring after payment.
-              </MockupPlaceholder>
+              <figure className="overflow-hidden rounded-lg bg-card">
+                <img src={boostxpressBuyFuelImage} alt="BoostXpress station discovery, fuel purchase, payment verification, and live dispensing screens" width={1920} height={1080} className="h-auto w-full" />
+              </figure>
             </div>
           </StorySection>
 
@@ -353,7 +312,9 @@ function BoostXpressCaseStudy() {
           <StorySection id="solution" title="The solution">
             <div className="space-y-8">
               <Body>A connected digital fueling ecosystem.</Body>
-              <EcosystemDiagram />
+              <figure className="overflow-hidden rounded-lg bg-card">
+                <img src={boostxpressSolutionImage} alt="BoostXpress connected digital fueling ecosystem diagram" width={1920} height={902} className="h-auto w-full" />
+              </figure>
               <div className="grid gap-4 border-t border-border pt-8 sm:grid-cols-2">
                 {[
                   { name: "Station discovery", detail: "Find partner stations, compare fuel prices, and check availability before arrival." },

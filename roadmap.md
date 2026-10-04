@@ -28,3 +28,4 @@
 - [x] Make every selected-work card open its project page.
 - [x] Build the Citi X case study and remove visible numbering from both completed case studies.
 - [x] Refine the BoostXpress hero, project details, business goals, and ecosystem diagrams, and add portrait sidebars to both completed case studies.
+- [x] Add matching two-column Citi X and BoostXpress heroes, update the BoostXpress cover, and place the supplied problem and solution visuals.

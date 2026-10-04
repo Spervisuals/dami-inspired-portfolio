@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import citiXImage from "@/assets/citi-x.jpg";
 import portraitImage from "@/assets/tobiloba-profile-2026.png";
 import { Button } from "@/components/ui/button";
 import { useActiveSection } from "@/hooks/use-active-section";
@@ -118,16 +119,23 @@ function CitiXCaseStudy() {
       </aside>
 
       <div className="lg:ml-[15.525rem]">
-        <section className="flex min-h-[25rem] flex-col justify-between rounded-lg border border-border bg-card p-7 sm:min-h-[30rem] sm:p-12 lg:p-16" data-reveal>
-          <p className="text-xs font-semibold uppercase text-highlight">Travel / Government</p>
-          <div>
-            <h1 className="font-display text-5xl font-bold leading-none sm:text-7xl lg:text-8xl">Citi X</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/75 sm:text-xl">Designing an end-to-end visa application and travel services platform.</p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground/60 sm:text-base">A connected ecosystem for travellers, visa agents, corporate users, and internal administrators, from registration and submission to review, payment, processing, and decision.</p>
+        <section className="grid min-h-[30rem] overflow-hidden rounded-lg border border-border bg-card lg:grid-cols-[minmax(0,0.92fr)_minmax(24rem,1.08fr)]" data-reveal>
+          <div className="flex flex-col justify-between p-7 sm:p-12 lg:p-14">
+            <p className="text-xs font-semibold uppercase text-highlight">Travel / Government</p>
+            <div className="my-12">
+              <h1 className="font-display text-5xl font-bold leading-none sm:text-7xl">Citi X</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/75 sm:text-xl">Designing an end-to-end visa application and travel services platform.</p>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground/60 sm:text-base">A connected ecosystem for travellers, visa agents, corporate users, and internal administrators, from registration and submission to review, payment, processing, and decision.</p>
+            </div>
+            <dl className="grid gap-x-6 gap-y-5 text-sm sm:grid-cols-2">
+              {metadata.map((item) => <div key={item.label}><dt className="text-xs font-semibold uppercase text-foreground/50">{item.label}</dt><dd className={`mt-1.5 leading-6 ${item.value.startsWith("[") ? "text-foreground/50" : "text-foreground/85"}`}>{item.value}</dd></div>)}
+            </dl>
           </div>
-          <dl className="grid gap-x-8 gap-y-5 text-sm sm:grid-cols-2 lg:grid-cols-5">
-            {metadata.map((item) => <div key={item.label}><dt className="text-xs font-semibold uppercase text-foreground/50">{item.label}</dt><dd className={`mt-1.5 leading-6 ${item.value.startsWith("[") ? "text-foreground/50" : "text-foreground/85"}`}>{item.value}</dd></div>)}
-          </dl>
+          <div className="self-center overflow-hidden rounded-lg bg-secondary lg:mr-8">
+            <div className="aspect-[1440/1024] overflow-hidden">
+              <img src={citiXImage} alt="Citi X application mockups" width={1905} height={1423} className="h-full w-full object-cover" />
+            </div>
+          </div>
         </section>
 
         <div className="px-1 sm:px-4">
