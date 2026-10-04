@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import citiXApplyImage from "@/assets/citi-x-apply.jpg";
+import citiXDocsImage from "@/assets/citi-x-docs.jpg";
 import citiXImage from "@/assets/citi-x.jpg";
 import portraitImage from "@/assets/tobiloba-profile-2026.png";
 import { Button } from "@/components/ui/button";
