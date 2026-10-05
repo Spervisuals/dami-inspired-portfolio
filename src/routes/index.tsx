@@ -3,7 +3,8 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/portfolio-hero.jpg";
+import heroImage from "@/assets/hero-panels.jpg";
+import contactImage from "@/assets/contact-panels.jpg";
 import portraitImage from "@/assets/tobiloba-profile-2026.png";
 import boostxpressImage from "@/assets/boostxpress.jpg";
 import mvaaImage from "@/assets/mvaa.jpg";
