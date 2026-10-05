@@ -206,7 +206,7 @@ function BoostXpressCaseStudy() {
           </div>
           <div className="self-center overflow-hidden rounded-lg bg-secondary lg:mr-8">
             <div className="aspect-[1440/1024] overflow-hidden">
-              <img src={boostxpressImage} alt="BoostXpress mobile application mockups" width={1904} height={1502} className="h-full w-full object-cover" />
+              <img src={boostxpressImage} alt="BoostXpress mobile application mockups" width={1024} height={768} className="h-full w-full object-cover" />
             </div>
           </div>
         </section>
