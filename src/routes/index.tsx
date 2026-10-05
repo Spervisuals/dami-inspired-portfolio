@@ -170,9 +170,9 @@ function Index() {
         >
           <img
             src={heroImage}
-            alt="Abstract monochrome architectural forms"
+            alt="Abstract dark geometric panels"
             width={1920}
-            height={1280}
+            height={1065}
             className="absolute inset-0 h-full w-full object-cover object-[70%_0%]"
           />
           <div className="relative z-10 grid w-full items-end gap-8 pb-2 lg:grid-cols-[minmax(0,1fr)_minmax(11rem,0.38fr)] lg:gap-10">
@@ -253,7 +253,15 @@ function Index() {
           </div>
         </section>
 
-        <section id="contact" className="contact-geometry scroll-mt-24 lg:scroll-mt-6 overflow-hidden rounded-lg border border-border px-7 py-16 text-foreground sm:px-12 sm:py-20">
+        <section id="contact" className="relative scroll-mt-24 lg:scroll-mt-6 overflow-hidden rounded-lg border border-border px-7 py-16 text-foreground sm:px-12 sm:py-20">
+          <img
+            src={contactImage}
+            alt="Abstract dark diagonal panels"
+            width={1920}
+            height={679}
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-[70%_50%]"
+          />
           <div className="relative z-10" data-reveal>
             <p className="text-xs font-semibold uppercase text-highlight">Get in Touch</p>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold sm:text-6xl">Have a complex problem worth solving?</h2>
